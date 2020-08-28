@@ -1,0 +1,95 @@
+<div class="login-container">
+    <!-- section start -->
+<a routerLink="/home" class="back">{{'back-to-website' | translate}}</a>
+<section class="login">
+    <ng-container *ngIf="loading">
+        <div class="lds-ripple"><div></div><div></div></div>
+    </ng-container>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="login__wrapper">
+                    <!-- <h3>{{'login' | translate}}</h3> by me    -->
+                    <p *ngIf="loginError" class="alert alert-danger" style="width: 100%;">{{loginError}}</p>
+                    <!-- by me -->
+                    <img src="../../../assets/images/login.jpeg" alt="" style="max-width: 60%; margin-bottom: 50px;">
+                    <form class="login__content-form" [formGroup]="loginForm"
+                    (ngSubmit)="login()">
+                        <div class="form-group login-phone">
+                            <select name="phoneKey" id="" formControlName="phoneKey">
+                                <option value="">{{'code' | translate}}</option>
+                                <option value="{{key.num}}" *ngFor="let key of phoneKeys">{{key.num}}</option>
+                            </select>
+                            <input type="number" id="Phone" placeholder="{{'Phone-Number' | translate}}*" formControlName="Phone">
+                        </div>
+                        <div *ngIf="Phone.touched && Phone.errors?.required" class="alert alert-danger">
+                            {{'Phone-required' | translate}}
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="password" placeholder="{{'Password' | translate}}*" 
+                            formControlName="password">
+                        </div>
+                        <div *ngIf="password.touched && password.errors?.required" class="alert alert-danger">
+                            {{'please-password' | translate}}
+                        </div>
+                        <div *ngIf="password.touched && password.errors?.minlength" class="alert alert-danger">
+                            {{'password-charector' | translate}}
+                        </div>
+                        
+                        <!-- <div class="login__saved">
+                            <p>remembe me</p>
+                            <a>
+                                forgetpassword
+                                <span>?</span>
+                            </a>
+                        </div> -->
+                        <button [disabled]="!loginForm.valid"  style="width: 85%;">{{'login' | translate}}</button>
+
+                        <!-- <div class="login__btn"></div> -->
+
+                    </form>
+                    <div class="formFooter">
+                            <a (click)="CreateAccount()">
+                                {{'create-new-account' | translate}}
+                            </a>
+                       
+                        <!-- <div class="forget"> -->
+                            <a routerLink="/forget">{{'forget-password' | translate}}?</a>
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-6">
+                <div class="new__account">
+                    <img src="../../../assets/images/login.jpeg" alt="" style="max-width: 100%;">
+                    <h3 class="text-center">{{'new-at-novodux' | translate}} ?</h3>
+                    <div class="create-account">
+                        <button class="" type="submit" (click)="CreateAccount()" style="width: 100%;">
+                            {{'create-new-account' | translate}}
+                        </button>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <!-- <div class="socail_login">
+           <p>
+            OR sign in to your account
+           </p>
+           <div class="buttons">
+               <button class="facebook">
+                facebook
+                   <i class="fa fa-facebook"></i>
+                </button>
+               <button class="google">
+                google
+                   <img src="../../../assets/images/google.png" alt="google">
+                </button>
+           </div>
+          
+        </div> -->
+    </div>
+    <div class="overlay" *ngIf="overlay"></div>
+
+</section>
+<!--Section ends-->
+</div>

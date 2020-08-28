@@ -1,0 +1,166 @@
+<!-- section start -->
+<a routerLink="/home" class="back">{{'back-to-website' | translate}}</a>
+<section class="register">
+    <ng-container *ngIf="loading">
+        <div class="lds-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </ng-container>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="register__wrapper">
+                    <h3>{{'Register' | translate}}</h3>
+                    <form class="register__content-form" [formGroup]="regform" (ngSubmit)="register()">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="{{'Name' | translate}}*" 
+                            formControlName="name">
+                        </div>
+                        <div *ngIf="name.touched && name.errors?.required" class="alert alert-danger">
+                            name is required
+                        </div>
+                        <div class="phone_content">
+                            <!-- <div class="form-group" class="left_side"> -->
+                                <select name="phoneKey" id="" formControlName="phoneKey"
+                                  >
+                                    <option value="">{{'code' | translate}}</option>
+                                    <option value="{{key.num}}" *ngFor="let key of phoneKeys">{{key.num}}</option>
+                                </select>
+                            <!-- </div> -->
+                                <input type="text" id="phone" maxlength="12" minlength="7" placeholder="{{'Phone-Number' | translate}}*"
+                                    formControlName="Phone">
+                            <!-- <div class="form-group" class="right_side" style="width:100%">
+                                <input type="text" id="phone" maxlength="12" minlength="7" placeholder="{{'Phone-Number' | translate}}*"
+                                    formControlName="Phone">
+                            </div> -->
+                        </div>
+                        <div *ngIf="Phone.touched && Phone.errors?.required" class="alert alert-danger">
+                            phone number is required
+                        </div>
+                        <div *ngIf="Phone.touched && Phone.errors?.maxLength" class="alert alert-danger">
+                           maxnumber 11
+                        </div>
+                        <div class="form-group profile-img">
+                            <!-- <label for="img">{{'select-img' | translate}}:</label> -->
+                            <!-- <img [src]="imageSrc" style="max-width:300px;max-height:300px"/> -->
+                            <input name="imageUrl" type="file" accept="image/*" 
+                                (change)="handleInputChange($event)" />
+                        </div>  
+                         
+                        <div class="form-group">
+                            <input type="text" 
+                            id="email" 
+                            placeholder="{{'Email(optional)' | translate}}" 
+                            formControlName="email">
+                        </div>
+                        <div *ngIf="email.touched && email.errors?.pattern" class="alert alert-danger">
+                            write correct email
+                        </div>
+                        <div class="alert alert-danger mt-2 mb-2" *ngIf="ReferralError"> {{ReferralError}}</div>
+                        <div class="form-group">
+                            <input type="text" 
+                            id="ReferralBy" 
+                            placeholder="{{'referral-code' | translate}}" 
+                            formControlName="ReferralBy">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="password" placeholder="{{'Password' | translate}}*"
+                            formControlName="password">
+                        </div>
+                        <div *ngIf="password.touched && password.errors?.required" class="alert alert-danger">
+                            {{'please-password' | translate}}
+                        </div>
+                        <div *ngIf="password.touched && password.errors?.minlength" class="alert alert-danger">
+                            {{'password-charector' | translate}}
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="ConfirmPassword"
+                                placeholder="{{'Confirm-Password' | translate}}*" formControlName="ConfirmPassword">
+                        </div>
+                        <div *ngIf="ConfirmPassword.touched && ConfirmPassword.value !== password.value"
+                            class="alert alert-danger">
+                            {{'passwords-not-match' | translate}}
+                        </div>
+                        <!-- <div *ngIf="ConfirmPassword.touched && ConfirmPassword.errors?.minlength" 
+                        class="alert alert-danger">
+                            Confirm Password is required
+                        </div> -->
+                        <div class="form-group">
+                            <select name="category" id="category" class="category-select" formControlName="category">
+                                <option value="">{{'select-category' | translate}}*</option>
+                                <option value="{{category.Id}}" *ngFor="let category of categories">
+                                    <ng-container *ngIf="checkLang== 'en'">{{category.Name}}</ng-container>
+                                    <ng-container *ngIf="checkLang== 'ar'">{{category.NameLT}}</ng-container>
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select name="country" id="country" class="category-select" formControlName="country">
+                                <option value="" disabled selected>select country</option>
+                                <option value="{{country.Id}}" *ngFor="let country of Countries">
+                                    <ng-container *ngIf="checkLang== 'en'">{{country.Name}}</ng-container>
+                                    <ng-container *ngIf="checkLang== 'ar'">{{country.NameLT}}</ng-container>
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group geneder">
+                            <span>{{'geneder-op' | translate}}</span>
+                            <div *ngFor="let gen of geneder">
+                                <label for="{{gen.type}}">
+                                    <input type="radio" value="{{gen.value}}"
+                                    id="{{gen.type}}" name="geneder"
+                                    formControlName="genederInput" name= "genederInput">
+                                    {{gen.type}}
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea 
+                            placeholder="{{'bio' | translate}}"formControlName="bio">
+                            </textarea>
+                        </div>
+                        <div class="register__btn">
+                            <button class="" type="submit" [disabled]="!regform.valid" (click)="saveData()">
+                                {{'Register' | translate}}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- <div class="col-6">
+                <div class="new__account">
+                    <img src="../../../assets/images/register.jpeg" alt="">
+                    <p>{{'already-have-an-account' | translate}}</p>
+                    <p>
+                        {{'loream' | translate}}
+                    </p>
+                    <div class="create-account">
+                        <button class="w-100" (click)="loginNav()">
+                            {{'login' | translate}}
+                        </button>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <!-- <div class="socail_login">
+            <p>
+                OR sign up with
+            </p>
+            <div class="buttons">
+                <button class="facebook">
+                    facebook
+                    <i class="fa fa-facebook"></i>
+                </button>
+                <button class="google">
+                    google
+                    <img src="../../../assets/images/google.png" alt="google">
+                </button>
+            </div>
+
+        </div> -->
+    </div>
+    <div class="overlay" *ngIf="overlay">
+    </div>
+</section>
+<!--Section ends-->

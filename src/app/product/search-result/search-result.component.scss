@@ -1,0 +1,47 @@
+
+:host {
+    .search_content {
+        display: flex;
+        justify-self: center;
+        position: relative;
+        top: 120px;
+        // margin-bottom: 170px;
+        // min-height: 300px;
+        height: 100vh;
+        .products_widget {
+            max-width: 25%;
+            flex-basis: 25%;
+            @media (max-width: 420px) {
+                max-width: 100%;
+                flex-basis: 100%;
+            }
+            @media (min-width: 420.1px) and (max-width: 768px) {
+                max-width: 50%;
+                flex-basis: 50%;
+            }
+          
+        }
+    }
+    a {
+        color: #000;
+    }
+    .product_rating {
+        display: flex;
+        justify-content: center;
+    }
+    ::ng-deep {
+        .br-unit {
+            font-size: 23px !important;
+        }
+        .br-unit:after {
+            content: "\2605" !important;
+            color: #231F20 !important;
+        }
+        .br {
+            margin: 0 !important;
+        }
+        .br-default .br-selected:after {
+            color: #EDB867 !important;
+        }
+    }
+}

@@ -1,0 +1,168 @@
+<div class="container">
+  <div class="classes-wrapper">
+    <div class="classes-categories-wrapper">
+      <div class="main-categories-holder">
+        <button class="filter-btn" (click)="show()">
+          {{ "show-filter" | translate }}
+        </button>
+        <div class="filter_col" [ngClass]="{ 'show-filter': showFilter }">
+          <div class="filter">
+            <div class="close" (click)="close()">
+              <i class="fa fa-times-circle"></i>
+            </div>
+            <div class="collect_filter">
+              <div class="filter_box">
+                <ul class="filter_box-title">
+                  <li *ngFor="let taxon of listOfCategory; let i = index">
+                    <div class="taxons-title">
+                      <a class="d-flex">
+                        <ng-container *ngIf="checkLang == 'en'">
+                          <label for="{{taxon.Id}}">{{ taxon.Name }}</label>
+                          <input type="radio" id="{{taxon.Id}}" name="test" value="{{taxon.Id}}"
+                            (change)="selectCatgory($event.target.value)">
+                        </ng-container>
+                        <ng-container *ngIf="checkLang == 'ar'">
+                          <label for="{{taxon.Id}}">{{ taxon.NameLT }}</label>
+                          <input type="radio" id="{{taxon.Id}}" name="test" value="{{taxon.Id}}"
+                            (change)="selectCatgory($event.target.value)"></ng-container>
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="products_col">
+          <div class="products_widget">
+            <div class="row w-100">
+              <!-- <div class="course-col" *ngFor="let course of subCourses">
+                <app-course-item [course]="course"></app-course-item>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sub-categories-holder">
+        <ng-container *ngIf="listOfSubCategory?.length; else NoCat">
+          <ul>
+            <li *ngFor="let subCatgories of listOfSubCategory">
+              <input type="radio" id="{{subCatgories.Name}}" name="test" value="{{subCatgories.Id}}"
+                (change)="selectSubCatgory($event.target.value)" class="subcategory">
+              <label for="{{subCatgories.Name}}">{{subCatgories.Name}}</label>
+            </li>
+          </ul>
+        </ng-container>
+        <ng-template #NoCat>
+          <p>please choose your class first</p>
+        </ng-template>
+
+
+      </div>
+    </div>
+    <!-- start classes list -->
+    <div class="classes-veiw-wrapper">
+      <!-- <div class="filter-holder">
+            <div class="drop">
+                <span>price</span>
+                <div class="dropdown_one-content">
+                  <ul>
+                    <li>less than 1000</li>
+                    <li>less more 1000</li>
+                    <li>within 1000</li>
+                  </ul>
+                </div>
+              </div>
+        </div> -->
+      <div class="classes-list-wrapper w-100">
+        <ng-container *ngIf="showCourses; else NoCourses">
+              
+          <ng-container *ngIf="courses?.length; else noSubCourse">
+            <div class="class-card" *ngFor="let course of courses">
+              <h2 class="class-name">{{course.Name}}</h2>
+              <div class="content">
+                <div class="class-auther-info">
+                  <!-- about auther -->
+                  <div class="about-auther">
+                    <div class="auther-img">
+                      <img [src]="teachPath + course.Image" alt=""/>
+                    </div>
+                    <div class="auther-info">
+                      <h3>{{course.TeacherName}}</h3>
+                      <p *ngIf="course.TeacherTitle">{{course.TeacherTitle}}</p>
+                    </div>
+                  </div>
+                  <!-- about class -->
+                  <div class="about-class">
+                    <div class="class-status">
+                      <i class="fa fa-users" aria-hidden="true"></i>
+                      <p>{{course.StudentCount}} participant</p>
+                    </div>
+                    <div class="class-rating">
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <p>{{course.CourseRateValue}} (ratings)</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="class-details">
+                  <h2>{{course.CurrentCost}}<span>per/monthe</span></h2>
+                  <a routerLink="/product/classes-details/{{course.Id}}">more details</a>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+
+          <ng-template #noSubCourse>
+              <p>there are not courses for this language</p>
+          </ng-template>
+         
+        </ng-container>
+        <ng-template #NoCourses>
+          <div class="no-Courses w-100">
+            <p>please choose your class and language first</p>
+
+          </div>
+        </ng-template>
+      </div>
+    </div>
+    <!-- start clasees detailes -->
+    <div class="classes-detailes-wrapper" *ngIf="showCourses">
+      <div class="bluer-header"></div>
+      <div class="classes-detailes">
+        <div class="auther-img">
+          <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50" alt="" />
+        </div>
+        <h2>Omar tmas7y</h2>
+        <p class="about-teacher">why english language learning is important</p>
+        <div class="time-holder">
+          <div class="time--title">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <h3>Choose Time</h3>
+          </div>
+          <div class="time-table">
+            <div class="time-row">
+              <div class="time--day">Sunday</div>
+              <div class="time-list-holder">
+                <button>10:00AM</button>
+                <button>12:00AM</button>
+                <button>1:00AM</button>
+                <button>4:30PM</button>
+              </div>
+            </div>
+            <div class="time-row">
+              <div class="time--day">Monday</div>
+              <div class="time-list-holder">
+                <button>10:00AM</button>
+                <button>12:00AM</button>
+                <button>1:00AM</button>
+                <button>4:30PM</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <button>book a trail lesson</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,103 @@
+<div class="content">
+    <div class="oder-side">
+        <div class="side__menu">
+            <ul>
+                <li>
+                    <a routerLink="/profile">
+                        <img src="../../assets/images/profileimg.png" alt="" class="side-menu-img">
+                        <span class="side-txt">{{'profile' | translate}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/wallet">
+                        <img src="../../assets/images/Wallet.svg.png" alt="" class="side-menu-img">
+                        <span class="side-txt">{{'wallet' | translate}}</span></a>
+                </li>
+                <li>
+
+                    <a routerLink="/myCourses">
+                        <img src="../../assets/images/graduation-cap.png" alt="" class="side-menu-img">
+                        <span class="side-txt">{{'myCourses' | translate}}</span></a>
+                </li>
+                <li>
+
+                    <a routerLink="/contact-us">
+                        <img src="../../assets/images/Complaint.png" alt="" class="side-menu-img">
+                        <span class="side-txt">{{'Complaint-Suggestion' | translate}}</span></a>
+                </li>
+                <li>
+                    <a routerLink="/ad-order" class="active-side">
+                        <img src="../../assets/images/Advertisements orders.png" alt="" class="side-menu-img">
+                        <span class="side-txt">{{'Advertisements-orders' | translate}}</span></a>
+                </li>
+                <li>
+                    <a (click)="logout()" class="logout">
+                        <img src="../../assets/images/logout.png" alt="" class="side-menu-img">
+                        <span class="side-txt">{{'logout' | translate}}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <ng-container *ngIf="IsLoading; else loading">
+        <div class="loading-container">
+            <div class="lds-ripple">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+    </ng-container>
+
+    <ng-template #loading>
+
+        <ng-container *ngIf="orders?.length; else noOrders">
+            <div class="view-btn">
+                <p>
+                    {{'Advertisements-orders' | translate}}
+                </p>
+            </div>
+            <div class="ad-order">
+                <table>
+                    <tr>
+                        <th>{{'Order-Id' | translate}}</th>
+                        <th>{{'Description' | translate}}</th>
+                        <th>{{'Status' | translate}}</th>
+                        <th>{{'Date' | translate}}</th>
+                    </tr>
+
+                    <tr *ngFor="let order of orders; let i= index">
+                        <td>{{order?.Id}}</td>
+                        <td>
+                     
+                            <ng-container *ngIf="checkLang== 'en'">{{order?.AdvertisementDescription}}</ng-container>
+                            <ng-container *ngIf="checkLang== 'ar'">{{order?.AdvertisementDescriptionLT}}</ng-container>
+                        </td>
+                        <td>
+                            <span class="status"
+                                [ngClass]="{'pendding': order?.AdvertisementOrderStatusName=='Pending',
+                                             'opend' : order?.AdvertisementOrderStatusName=='Opend'}">
+                                
+                                <ng-container *ngIf="checkLang== 'en'">{{order?.AdvertisementOrderStatusName}}</ng-container>
+                                <ng-container *ngIf="checkLang== 'ar'">{{order?.AdvertisementOrderStatusNameLT}}</ng-container></span>
+                        </td>
+                        <td>{{order?.CreationDate}}
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </ng-container>
+        <ng-template #noOrders>
+            <div class="ad-order-empty">
+                <p>
+                    {{'no-orders' | translate}}
+                </p>
+            </div>
+
+        </ng-template>
+    </ng-template>
+
+
+</div>

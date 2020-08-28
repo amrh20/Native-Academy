@@ -1,0 +1,59 @@
+<div class="search-from">
+    <form [formGroup]="searchForm">
+        <input type="text" class="form-control" 
+        placeholder="{{'search-your-course' | translate}}.. "
+        formControlName="search"
+        >
+        <button (click)="Search()">
+             {{'search' | translate}}
+            <i class="fa fa-spinner fa-spin ml-2" *ngIf="loading"></i>
+        </button>
+    </form>
+</div>
+<div class="search-result" (clickOutside)="onClickedOutside($event)" 
+[exclude]="'.search-from'" [ngClass]="{'is-show': showSearch}" >
+    <ng-container *ngIf="seachRes?.length;">
+        <div class="course" [ngClass]="{'hide': hideSearchres}">
+            <!-- <div class="close-search">
+                <i class="fa fa-times"  (click)="hideSearch()"></i>
+            </div> -->
+            <div class="course-content" *ngFor="let search of seachRes">
+                <a routerLink="/product/course/{{search.Id}}" style="display: flex;color: inherit;">
+                 <div>
+                   
+                     <img [src]="imagePath + search.Image" alt="">
+                  
+                 </div>
+                 <div class="course-details">
+                     <span>
+                        <ng-container *ngIf="checkLang== 'en'">{{search.Name}}</ng-container>
+                        <ng-container *ngIf="checkLang== 'ar'">{{search.NameLT}}</ng-container>
+                     </span>
+                     <bar-rating [rate]="search.CourseRateValue" [readOnly]="true"></bar-rating>   
+                 </div>
+                 <div class="course-cost"> 
+                     <p class="price">
+                         {{search.CurrentCost}}
+                        </p>
+                     <p>
+                        <ng-container *ngIf="checkLang== 'en'">{{search.CategoryName}}</ng-container>
+                        <ng-container *ngIf="checkLang== 'ar'">{{search.CategoryNameLT}}</ng-container>
+                     </p>
+                     <p>
+                        <ng-container *ngIf="checkLang== 'en'">{{search.TeacherName}}</ng-container>
+                        <ng-container *ngIf="checkLang== 'ar'">{{search.TeacherNameLT}}</ng-container>
+                     </p>
+                 </div>
+                 <!-- <div class="fav">
+                    <img src="../../../assets/images/wishlist.png" alt="" (click)="addToFav(search.Id)">
+                </div> -->
+                </a>
+            </div>         
+         </div>
+    </ng-container>
+    <!-- <ng-template #noResult>
+     <div class="empty">
+        {{'there-are-not-result' | translate}}
+     </div>
+    </ng-template> -->
+</div>

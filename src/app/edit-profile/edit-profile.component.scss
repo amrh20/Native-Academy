@@ -1,0 +1,98 @@
+:host {
+    .edit-profile {
+        position: relative;
+        top: 130px;
+        text-align: center;
+        margin-bottom: 130px;
+        form {
+            width: 40%;
+            margin: 0 auto;
+            text-align: center;
+            border-radius: 10px 10px 10px 10px;
+            background: #fff;
+            padding: 30px;
+            max-width: 450px;
+            padding: 0px;
+            box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: relative;
+            margin-bottom: 200px;
+            padding: 20px;
+            @media (max-width: 992px) {
+                width: 90%;
+                margin: 0 auto;
+                bottom: 30px;
+            }
+            .form-group {
+                display: flex;
+                align-items: center;
+                margin-bottom: 30px;
+                input {
+                    padding-left: 40px;
+                    [dir= rtl] & {
+                        padding-left: 0;
+                        padding-right: 40px;
+                    }
+                }
+                img {
+                    position: absolute;
+                    height: 15px;
+                    margin-left: 10px;
+                    [dir= rtl] & {
+                        margin-left: 0;
+                        margin-right: 10px;
+                    }
+                }
+                span {
+                    width: 60%;
+                    text-align: left;
+                    [dir= rtl] & {
+                        text-align: right;
+                    }
+                }
+                [dir= rtl] & {
+                    text-align: right;
+                }
+            }
+            select {
+                cursor: pointer;
+                width: 100%;
+            }
+            .geneder {
+                label {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-right: 30px;
+                    margin-bottom: 0;
+                    cursor: pointer;
+                }
+                input {
+                    height: 13px;
+                    width: 13px;
+                    margin-right: 10px;
+                    cursor: pointer;
+                    [dir= rtl] & {
+                        margin-right: 0;
+                        margin-left: 10px;
+                    }
+                }
+            }
+            select {
+                padding: 5px 20px;
+                height: 40px;
+            }
+        }
+        input,textarea,select {
+            background-color: #f6f6f6;
+            border: none;
+            border-radius: 5px 5px 5px 5px;
+        }
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 10px;
+            resize: none;
+        }
+    }
+}

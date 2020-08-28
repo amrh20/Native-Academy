@@ -1,0 +1,109 @@
+<ng-container *ngIf="myFavorites?.length; else empty">
+  <div class="wishlist_wrapper">
+    <div class="wishlist_widget">
+      <div class="container">
+        <div class="tittle_innerpage">
+          <h2>wishlist</h2>
+          <p>( {{myFavorites?.length}} ) product/s</p>
+        </div>
+        <div class="wishList">
+          <!-- start wishlist container -->
+          <div class="wishList__container">
+            <!-- start wish list head -->
+            <table>
+              <div class="overlay-delete" *ngIf="overlayDelete"></div>
+              <thead>
+                <tr>
+                  <th>{{'image' | translate}}</th>
+                  <th>{{'product-description' | translate}}</th>
+                  <th>{{'price' | translate}}</th>
+                  <th>{{'add-to-Cart' | translate}}</th>
+                  <th>{{'delete' | translate}}</th>
+                </tr>
+              </thead>
+              <!--  content -->
+              <tbody class="wishList-content" *ngFor="let fav of myFavorites; let i =index">
+                <tr>
+                  <!-- product image -->
+                  <td>
+                    <div class="product-img">
+                      <img [src]="imagePath + fav?.Image" alt="dress">
+                    </div>
+                  </td>
+                  <!-- product name -->
+                  <td class="td_desc">
+                    <div class="product_description">
+                      <a class="product_name">
+
+                        <ng-container *ngIf="checkLang== 'en'"> {{fav.Name}}</ng-container>
+                        <ng-container *ngIf="checkLang== 'ar'"> {{fav.NameLT}}</ng-container>
+                      </a>
+                      <p>
+
+                        <ng-container *ngIf="checkLang== 'en'"> {{fav.Description}}</ng-container>
+                        <ng-container *ngIf="checkLang== 'ar'"> {{fav.DescriptionLT}}</ng-container>
+                      </p>
+
+                    </div>
+                  </td>
+                  <td>
+                    <!-- product price -->
+                    <div class="product_price">
+                      <span class="current-price">
+                        {{fav.CurrentCost}}
+                      </span>
+                      <span class="original-price">
+                        {{fav.PreviousCost}}
+                      </span>
+                    </div>
+                  </td>
+                  <td>
+                    <!-- product action -->
+                    <div class="product-actions">
+                      <button class="" (click)="addToCart(fav.Id)">
+                        {{'add-to-Cart' | translate}}
+                        <i class="fa fa-shopping-cart"></i>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <!-- remove product -->
+                    <div class="product-remove">
+                      <button class="btn-remove" (click)="deleteitem(fav.Id,i)">
+                        <img src="../../../assets/images/trash.png" alt="">
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="wishlist_btns">
+            <!-- <div class="continue_shipping">
+              <button class="temp_button">continue shopping</button>
+            </div> -->
+            <!-- <div class="clear">
+                <button class="temp_button">clear wishlist</button>
+              </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gooey" *ngIf="loaded">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #empty>
+  <div class="empty_whishlist">
+    <div class="content">
+      <p>{{'whishList-empty' | translate}}</p>
+    </div>
+  </div>
+</ng-template>

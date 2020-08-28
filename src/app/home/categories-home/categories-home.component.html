@@ -1,0 +1,47 @@
+<div class="courses">
+    <div class="container">
+      <div class="courses__wrapper">
+        <div class="left_side">
+          <div class="title">
+            <h3>{{'categories' | translate}}</h3>
+            <span></span>
+          </div>
+          <div class="content">
+            <p>
+              {{'loream' | translate}}
+            </p>
+          </div>    
+          <a routerLink="/product/courses">
+            <button class="btn-1 icon-forward view__more-btn"><span>
+              {{'view-all' | translate}}
+            </span></button>
+          </a>
+          </div>
+          <div class="right_side">
+            <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="sliderConfig">       
+              <div ngxSlickItem class="slide" *ngFor= "let category of categories">
+                <div class="category-content">
+                  <div class="slide_img">
+                    <img [src]="imagePath + category?.Image" alt="">
+                    <div class="view_course">
+                      <a routerLink="/product/courses/{{category.Id}}">{{'view-details' | translate}}</a>
+                    </div>
+                    <div class="overlay"></div>
+                  </div>
+                  <div class="course__details">
+                    <div class="course__detials-name">
+                      <h3>
+                        <ng-container *ngIf="checkLang== 'en'">{{category.Name}}</ng-container>
+                        <ng-container *ngIf="checkLang== 'ar'">{{category.NameLT}}</ng-container>
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              
+              </div>
+            </ngx-slick-carousel>
+          </div>
+      </div>
+    
+    </div>
+    </div>

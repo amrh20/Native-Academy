@@ -1,0 +1,33 @@
+<div class="filter" [ngClass]="{'hide-filter' : hide}">
+    <div class="close" (click)="close()">
+        <i class="fa fa-times-circle"></i>
+    </div>
+    <div class="collect_filter">
+        <div class="filter_box">
+            <ul class="filter_box-title">
+                <li *ngFor="let taxon of listOfCategory; let i= index">
+                    <div class="taxons-title">
+                        <a>
+                            <ng-container *ngIf="checkLang== 'en'">{{taxon.Name}}</ng-container>
+                            <ng-container *ngIf="checkLang== 'ar'">{{taxon.NameLT}}</ng-container>
+                        </a>
+                        <i class="fa fa-chevron-down" *ngIf="taxon?.SubCategories.length"></i>
+                    </div>
+                    <ng-container *ngIf="taxon?.SubCategories">
+                        <ul class="subtaxon">
+                            <li *ngFor="let subtaxon of taxon?.SubCategories" class="subtaxon-title">
+                                <a routerLink="/product/subcourses/{{subtaxon.Id}}">-
+                                    <ng-container *ngIf="checkLang== 'en'">{{subtaxon.Name}}</ng-container>
+                                    <ng-container *ngIf="checkLang== 'ar'">{{subtaxon.NameLT}}</ng-container>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </ng-container>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</div>

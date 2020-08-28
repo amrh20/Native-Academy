@@ -1,0 +1,43 @@
+    <div class="cart">
+        <a routerLink="/product/course/{{course.Id}}">
+        <div class="cart_img">
+          <img [src]="imagePath + course.Image" alt="">
+        </div>
+        <div class="cart_deatils">
+          <div class="product_rating">
+            <bar-rating [rate]="course.CourseRateValue" [readOnly]="true"></bar-rating>
+          </div>
+          <div class="product_name">
+                <h3>
+                  <ng-container *ngIf="checkLang== 'en'">{{course?.Name}}</ng-container>
+                  <ng-container *ngIf="checkLang== 'ar'">{{course?.NameLT}}</ng-container>
+                </h3>
+          </div>
+          <div  class="product_price">
+              <span class="new_price">{{course?.PreviousCost}}</span>
+              <span class="original_price">{{course?.CurrentCost}}</span>
+            </div>
+        </div>
+       </a>
+        <div class="product-icons">
+          <div class="wishlist_icon tooltipe" 
+                  data-tooltip="add to cart" (click)="addToCart(course.Id)"
+                  >
+            <!-- <img src="../../../assets/images/Cart.png" alt=""> -->
+            <i class="fa fa-cart-plus"></i>
+          </div>
+          <div class="wishlist_icon tooltipe" 
+          data-tooltip="add to wishlist" (click)="addToFav(course.Id)">
+          <ng-container *ngIf="course?.IsFavorite===1; else noFav">
+            <i class="fa fa-heart"></i>
+          </ng-container>
+          <ng-template #noFav>
+            <img src="../../../assets/images/wishlist.png" alt="">
+          </ng-template>
+          </div>    
+     
+        </div>
+        <div class="error-overlay" *ngIf="errorMsg">
+           {{errorMsg}}
+        </div>
+    </div>

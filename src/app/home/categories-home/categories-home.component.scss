@@ -1,0 +1,372 @@
+
+@import "../../variables.scss";
+
+:host {
+  .courses {
+    margin: 190px 0 80px 0;
+    &__wrapper {
+      display: flex;
+      @media (max-width: 768px) {
+        display: block;
+      }
+      .left_side {
+        max-width: 35%;
+        flex-basis: 35%;
+        @media (max-width: 768px) {
+          max-width: 100%;
+          flex-basis: 100%;
+          margin-bottom: 40px;
+        }
+        .title {
+          position: relative;
+          h3 {
+            font-size: 25px;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: $main-color;
+          }
+          span {
+            width: 60px;
+            height: 4px;
+            position: absolute;
+            left: 0px;
+            bottom: -11px;
+            background-color: $main-color;
+            [dir= rtl] & {
+              left: auto;
+              right: 0;
+            }
+          }
+        }
+        .content {
+          margin-top: 40px;
+          span {
+            text-transform: capitalize;
+            font-size: 22px;
+          }
+          p {
+            margin-top: 20px;
+            width: 90%;
+          }
+        }
+        .btns {
+          margin-top: 30px;
+          button {
+            padding: 12px 25px;
+          }
+        }
+        [dir= rtl] & {
+          text-align: right;
+        }
+      }
+      .right_side {
+        max-width: 65%;
+        flex-basis: 65%;
+        @media (max-width: 768px) {
+          max-width: 100%;
+          flex-basis: 100%;
+          margin-bottom: 40px;
+        }
+        img {
+          max-height: 300px;
+          margin: 0 auto;
+        }
+        .slide_img {
+          position: relative;
+          margin-bottom: 15px;
+          .view_course {
+            position: absolute;
+            top: 80%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: all .3s ease-in-out;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 22;
+            width: 100%;
+            text-align: center;
+            a,p {
+              border: 1.5px solid #fff;
+              color: #fff;
+              padding: 8px 10px; 
+              text-transform: capitalize;
+              cursor: pointer;
+            }
+          }
+          .overlay {
+            z-index: 1;
+            transition: all .3s ease-in-out;
+            visibility: hidden;
+            position: absolute;
+            content: "";
+            height: 100%;
+            width: 100%;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            background-color: #000;
+            opacity: 0;
+          }
+          &:hover {
+            .view_course {
+              opacity: 1;
+              visibility: visible;
+              top: 50%;
+            }
+            .overlay {
+              opacity: .6;
+              visibility: visible;
+            }
+          }
+          img {
+            max-width: 100%;
+          }
+        }
+ 
+      }
+    }
+   .content {
+     height: fit-content;
+   }
+  }
+  .category-content {
+    background: #f5f5f5;
+  }
+  ::ng-deep {
+    .fa-angle-left,
+    .fa-angle-right {
+      height: 35px;
+      width: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      cursor: pointer;
+      border: 1.5px solid $main-color;
+    }
+    .fa-angle-left {
+      position: absolute;
+      top: -50px;
+      right: 70px;
+    }
+    .fa-angle-right {
+      position: absolute;
+      top: -50px;
+      right: 13px;
+    }
+    .fa-angle-left:before,.fa-angle-right:before {
+      color: $main-color;
+    }
+}
+.view__more-btn {
+  margin-top: 20px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+.course__details {
+  margin-right: 15px;
+  .price {
+    text-align: center;
+    margin: 10px 0;
+    .original_price {
+      margin-right: 15px;
+    }
+  }
+  .course__detials-name {
+    padding-bottom: 15px;
+    // border-bottom: 2px solid #000;
+    text-align: center;
+    color: $main-color;
+    font-weight: 800;
+   h3 {
+     font-size: 20px;
+   }
+  }
+  .product_rating {
+    margin: 15px 0;
+    text-align: center;
+  }
+}
+
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 10px;
+    background-color: red;
+    padding: 10px;
+  }
+  
+  .grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+  }
+  
+  .item1 {
+    grid-row: 1 / span 2;
+  }
+  .item2 {
+    grid-column: 2 span
+  }
+  .item5 {
+      grid-column: 2 span;
+  }
+  .feature_products {
+    margin: 70px 0;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  .feature_products .collection_block {
+    // width: 100%;
+    // -ms-flex-preferred-size: 100%;
+    // flex-basis: 100%;
+    padding: 20px 10px;
+  }
+  @media (min-width: 560px) and (max-width: 992px) {
+    .feature_products .collection_block {
+        // width: 50%;
+        // -ms-flex-preferred-size: 50%;
+        // flex-basis: 50%;
+    }
+  }
+  @media (min-width: 992.1px) {
+    .feature_products .collection_block {
+        // width: 33.333%;
+        // -ms-flex-preferred-size: 33.333%;
+        // flex-basis: 33.333%;
+    }
+  }
+  .feature_products img {
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+  }
+  .feature_products img:hover {
+    -webkit-transform: scale(1.5) rotate(10deg);
+    -ms-transform: scale(1.5) rotate(10deg);
+    transform: scale(1.5) rotate(10deg);
+  }
+  .feature_products .block {
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    background-color: #f7f7f7;
+    height: 400px;
+  }
+  
+  .feature_products .block .txt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: hsla(0, 0%, 100%, 0.7);
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: capitalize;
+    height: 70px;
+    width: 250px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  @media (max-width: 768px) {
+    .feature_products .block .txt {
+        font-size: 18px;
+        height: 50px;
+        width: 200px;
+    }
+  }
+  .feature_products .block .overlay_btn {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    -webkit-transform: translate(-50%);
+    -ms-transform: translate(-50%);
+    transform: translate(-50%);
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  
+  }
+  .feature_products .block .overlay_btn button {
+    background-color: #b33939;
+    color: #fff;
+    padding: 8px 18px;
+    border: 0;
+    cursor: pointer;
+    text-transform: capitalize;
+    a {
+      color: #fff;
+    }
+  }
+  @media (max-width: 768px) {
+    .feature_products .block .overlay_btn button {
+        padding: 5px 15px;
+    }
+  }
+  .feature_products .block .overlay_btn button i {
+    font-size: 14px;
+    margin-left: 10px;
+  }
+  @media (max-width: 768px) {
+    .feature_products .block .overlay_btn button i {
+        font-size: 12px;
+        margin-left: 6px;
+    }
+  }
+  @media (max-width: 768px) {
+    .feature_products .block .overlay_btn {
+        font-size: 16px;
+    }
+  }
+  .feature_products .block .blocklayer {
+    background-color: rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+    -webkit-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .feature_products .block:hover .blocklayer {
+    -webkit-transform: translateY(-400px);
+    -ms-transform: translateY(-400px);
+    transform: translateY(-400px);
+    height: 100px;
+  }
+  .feature_products .block:hover .overlay_btn {
+    opacity: 1;
+    visibility: visible;
+    bottom: 25px;
+  }
+  @media (max-width: 768px) {
+    .feature_products .block:hover .overlay_btn {
+        bottom: 20px;
+    }
+  }
+  @media (max-width: 560px) {
+    .feature_products {
+        margin-top: 20px;
+    }
+  }
+  

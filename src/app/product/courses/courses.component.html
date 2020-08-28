@@ -1,0 +1,42 @@
+<ng-container *ngIf="courses.length; else noSub">
+    <div class="shop_Content">
+        <div class="container">
+            <button class="filter-btn" (click)="show()">{{'show-filter' | translate}}</button>
+            <div class="row">
+                <div class="filter_col" [ngClass]="{'show-filter': showFilter}">
+                    <div class="filter">
+                        <div class="close" (click)="close()">
+                            <i class="fa fa-times-circle"></i>
+                        </div>
+                        <div class="collect_filter">
+                            <div class="filter_box">
+                                <ul class="filter_box-title">
+                                    <li *ngFor="let taxon of listOfCategory; let i= index">
+                                        <div class="taxons-title">
+                                            <a>
+                                                <ng-container *ngIf="checkLang== 'en'">{{taxon.Name}}</ng-container>
+                                                <ng-container *ngIf="checkLang== 'ar'">{{taxon.NameLT}}</ng-container>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="products_col">
+                    <div class="products_widget">
+                        <div class="row w-100">
+                            <div class="course-col" *ngFor="let course of courses">
+                                <app-course-item [course]="course"></app-course-item>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+        </div>
+        </div>
+    </div> 
+</ng-container>
+<ng-template #noSub>
+   <p style="height: 50vh;position: relative;top: 100px;text-align: center;">there are not sub categories</p>
+</ng-template>

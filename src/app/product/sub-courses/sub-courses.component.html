@@ -1,0 +1,53 @@
+<div class="shop_Content">
+    <div class="container">
+        <div class="row">
+            <button class="filter-btn" (click)="show()">{{'show-filter' | translate}}</button>
+                <div class="filter_col" [ngClass]="{'show-filter': showFilter}">
+                    <div class="filter">
+                        <div class="close" (click)="close()">
+                            <i class="fa fa-times-circle"></i>
+                        </div>
+                        <div class="collect_filter">
+                            <div class="filter_box">
+                                <ul class="filter_box-title">
+                                    <li *ngFor="let taxon of listOfCategory; let i= index">
+                                        <div class="taxons-title" (click)="hideme[i] = !hideme[i]">
+                                            <a>
+                                                <ng-container *ngIf="checkLang== 'en'">
+                                                    {{taxon.Name}}</ng-container>
+                                                <ng-container *ngIf="checkLang== 'ar'">
+                                                    {{taxon.NameLT}}</ng-container>
+                                            </a>
+                                            <i class="fa fa-chevron-down" 
+                                            *ngIf="taxon?.SubCategories?.length"></i>
+                                        </div>
+                                            <ul class="subtaxon" [hidden]="!hideme[i]">
+                                                <li *ngFor="let subtaxon of taxon?.SubCategories" 
+                                                    class="subtaxon-title">
+                                                    <a routerLink="/product/subcourses/{{subtaxon.Id}}">-
+                                                        <ng-container *ngIf="checkLang== 'en'">{{subtaxon.Name}}</ng-container>
+                                                        <ng-container *ngIf="checkLang== 'ar'">{{subtaxon.NameLT}}</ng-container>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                    
+                                    </li>
+                    
+                                </ul>
+                    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="products_col">
+                <div class="products_widget">
+                    <div class="row w-100">
+                        <div class="course-col" *ngFor="let course of subCourses">
+                            <app-course-item [course]="course"></app-course-item>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

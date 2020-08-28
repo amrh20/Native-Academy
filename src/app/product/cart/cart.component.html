@@ -1,0 +1,141 @@
+<div class="cart_wrapper">
+
+    <!-- product content -->
+    <div class="cart_content">
+      <ng-container *ngIf="loading; else loaded">
+        <div class="loading-container">
+        <div class="lds-ripple"><div></div><div></div></div>
+      </div>
+      </ng-container>
+      <ng-template #loaded>
+
+      <ng-container *ngIf="Courses?.length; else emptyCart">
+        <div class="container">
+          <!-- cart content title-->
+          <div class="tittle_innerpage">
+            <h2>{{'cart' | translate}}</h2>
+            <p>( {{Courses?.length}} ) {{'courses' | translate}}</p>
+          </div>
+          <div class="cart_content-details">
+            <div class="cartView_wrapper">
+                <div class="cart_widget" *ngFor="let course of Courses">
+                  <div class="cart_details">
+                    <div class="cart_head-wrapper">
+                      <div class="product_img">
+                        <img [src]="imagePath + course?.Course?.Image" alt="dress">
+                      </div>
+                      <div class="cart_head-content">
+                        <div class="product_name">
+                          <a>
+                            <ng-container *ngIf="checkLang== 'en'"> {{course?.Course?.Name}}</ng-container>
+                            <ng-container *ngIf="checkLang== 'ar'"> {{course?.Course?.NameLT}}</ng-container>
+                          </a>
+                          <p>
+                            <ng-container *ngIf="checkLang== 'en'"> {{course?.Course?.CategoryName}}</ng-container>
+                            <ng-container *ngIf="checkLang== 'ar'"> {{course?.Course?.CategoryNameLT}}</ng-container>
+                          </p>
+                        </div>
+                        <div class="product_desc">
+                          <ng-container *ngIf="checkLang== 'en'"> {{course?.Course?.Description}}</ng-container>
+                          <ng-container *ngIf="checkLang== 'ar'"> {{course?.Course?.DescriptionLT}}</ng-container>
+                        </div>
+                     
+                      </div>
+    
+                    </div>
+                    <div class="product_price d-flex align-items-center ml-5">
+                      <div class="original_price">
+                        {{course?.Course?.PreviousCost}}
+                      </div>
+                      <div class="new_price">
+                        {{course?.Course?.CurrentCost}}
+                      </div>
+                    </div>
+                    <!-- <div class="cart_count">
+                      
+                      <div class="cart_total">
+                        <p>total : <span>220.00 $</span></p>
+                      </div>
+                    </div> -->
+                  </div>  
+                  <div class="remove_product" (click)="deleteItem(course?.Course?.Id)">
+                    <i class="fa fa-times"></i>
+                  </div>
+                  <div class="overlay" *ngIf="overlay">
+
+                  </div>
+                </div>
+                  
+               <!--            
+              <div class="cartView_btns">
+                <div class="continue_shipping">
+                  <button class="temp_button">continue shopping</button>
+                </div>
+                <div class="clear_update">
+                  <button class="temp_button">clear cart</button>
+                </div>
+              </div> -->
+            </div>
+  
+            <div class="order_summary">
+              
+              <div class="white-box">
+                <div class="white-box-title">
+                  <h2>{{'order-summary' | translate}}</h2>
+                </div>
+                <div class="cart-checkout">
+                  <div class="cart-checkout-item total-item">
+                    <span>{{'subtotal' | translate}}</span>
+                    <span class="cart-total">{{CoursesPrice}}</span>
+                  </div>
+                  <div class="cart-checkout-item total-item">
+                    <span>{{'discount' | translate}}</span>
+                    <span class="cart-total">{{couponValue}}</span>
+                  </div>
+                  <div class="cart-checkout-item total-item">
+                    <span>{{'total' | translate}}</span>
+                    <span class="cart-total">{{totalPrice}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="coupon">
+                <div class="alert alert-danger" *ngIf="invalidConpou">{{invalidConpou}}</div>
+                <form [formGroup]="couponForm" (ngSubmit)="applyCoupon()">
+                  <input type="text" placeholder="{{'write-your-coupon' | translate}}" formControlName="coupon">
+                  <button type="submit" [disabled]="!couponForm.valid">
+                    {{'apply' | translate}} <i class="fa fa-spinner fa-spin ml-2" *ngIf="couponLoading"></i>
+                  </button>
+                </form>
+              </div>
+              <div class="checkout-form">
+                <form [formGroup]="checkoutForm" (ngSubmit)="checkout()">
+                  <p>{{'Payment-Methods' | translate}}:</p>
+                  <label for="wallet">
+                    <input type="radio" id="wallet" name="payment" value="true" formControlName="payment">
+                    {{'From-Your-Wallet' | translate}}
+                  </label>
+                  <label for="balance">
+                    <input type="radio" id="balance" name="payment" value="false" formControlName="payment">
+                    {{'From-Your-Rewards' | translate}}
+                  </label>
+                <button class="temp_button w-100" type="submit" [disabled]="!checkoutForm.valid">
+                  {{'checkout' | translate}}
+                 </button>
+                </form>
+              </div>
+  
+            </div>
+            <!--End white-box-->
+          </div>
+        </div>
+      </ng-container>
+      <ng-template #emptyCart>
+        <div class="emptyCart">
+          {{'empty-cart' | translate}}
+        </div>
+      </ng-template>
+
+
+    </ng-template>
+    </div>
+  </div>
