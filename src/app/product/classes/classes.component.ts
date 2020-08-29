@@ -28,13 +28,6 @@ export class ClassesComponent implements OnInit {
     this.homeService.getCategories().subscribe((res:any) => {
       this.listOfCategory= res.model
     })
-    // this.activeRoute.params.subscribe(parm => {
-    //   let id =parm.id
-    //   this.productService.getSubTaxonsCourses(id).subscribe((res: any) => {
-    //     this.subCourses= res.model
-    //     console.log("subCourses", this.subCourses)
-    //   })
-    // })
 
     this.checkLang= localStorage.getItem('currentLanguage') || 'en'
   }
