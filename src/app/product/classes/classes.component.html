@@ -79,36 +79,40 @@
               
           <ng-container *ngIf="courses?.length; else noSubCourse">
             <div class="class-card" *ngFor="let course of courses">
-              <h2 class="class-name">{{course.Name}}</h2>
-              <div class="content">
-                <div class="class-auther-info">
-                  <!-- about auther -->
-                  <div class="about-auther">
-                    <div class="auther-img">
-                      <img [src]="teachPath + course.TeacherProfileImage" alt=""/>
+              <input type="radio" value="{{course.Id}}" name="class" id="{{course.Name}}"  
+              (change)="selectClass($event.target.value)">
+              <label for="{{course.Name}}">
+                <h2 class="class-name">{{course.Name}}</h2>
+                <div class="content">
+                  <div class="class-auther-info">
+                    <!-- about auther -->
+                    <div class="about-auther">
+                      <div class="auther-img">
+                        <img [src]="teachPath + course.TeacherProfileImage" alt=""/>
+                      </div>
+                      <div class="auther-info">
+                        <h3>{{course.TeacherName}}</h3>
+                        <p *ngIf="course.TeacherTitle">{{course.TeacherTitle}}</p>
+                      </div>
                     </div>
-                    <div class="auther-info">
-                      <h3>{{course.TeacherName}}</h3>
-                      <p *ngIf="course.TeacherTitle">{{course.TeacherTitle}}</p>
+                    <!-- about class -->
+                    <div class="about-class">
+                      <div class="class-status">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                        <p>{{course.StudentCount}} participant</p>
+                      </div>
+                      <div class="class-rating">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <p>{{course.CourseRateValue}} (ratings)</p>
+                      </div>
                     </div>
                   </div>
-                  <!-- about class -->
-                  <div class="about-class">
-                    <div class="class-status">
-                      <i class="fa fa-users" aria-hidden="true"></i>
-                      <p>{{course.StudentCount}} participant</p>
-                    </div>
-                    <div class="class-rating">
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <p>{{course.CourseRateValue}} (ratings)</p>
-                    </div>
+                  <div class="class-details">
+                    <h2>{{course.CurrentCost}}<span>per/monthe</span></h2>
+                    <!-- <a routerLink="/product/classes-details/{{course.Id}}">more details</a> -->
                   </div>
                 </div>
-                <div class="class-details">
-                  <h2>{{course.CurrentCost}}<span>per/monthe</span></h2>
-                  <a routerLink="/product/classes-details/{{course.Id}}">more details</a>
-                </div>
-              </div>
+              </label>
             </div>
           </ng-container>
 
@@ -126,43 +130,42 @@
       </div>
     </div>
     <!-- start clasees detailes -->
-    <div class="classes-detailes-wrapper" *ngIf="showCourses">
+    <div class="classes-detailes-wrapper" *ngIf="ClassDetails?.length;else noClassdetails">
       <div class="bluer-header"></div>
       <div class="classes-detailes">
         <div class="auther-img">
-          <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50" alt="" />
+          <img [src]="teachPath + teacherDetails.ProfileImage" alt="" />
         </div>
-        <h2>Omar tmas7y</h2>
-        <p class="about-teacher">why english language learning is important</p>
+        <h2>{{teacherDetails.Name}}</h2>
+        <p class="about-teacher">{{teacherDetails.Bio}}</p>
         <div class="time-holder">
           <div class="time--title">
             <i class="fa fa-clock-o" aria-hidden="true"></i>
             <h3>Choose Time</h3>
           </div>
           <div class="time-table">
-            <div class="time-row">
-              <div class="time--day">Sunday</div>
+            <div class="time-row" *ngFor="let time of timeTables">
+              <div class="time--day">{{time.Day}}</div>
               <div class="time-list-holder">
-                <button>10:00AM</button>
-                <button>12:00AM</button>
-                <button>1:00AM</button>
-                <button>4:30PM</button>
+                 <span class="mx-2">from: </span>
+                <button>{{time.FromTime}}</button>
+                <span class="mx-2">to:</span>
+                <button>{{time.ToTime}}</button>
+               
               </div>
             </div>
-            <div class="time-row">
-              <div class="time--day">Monday</div>
-              <div class="time-list-holder">
-                <button>10:00AM</button>
-                <button>12:00AM</button>
-                <button>1:00AM</button>
-                <button>4:30PM</button>
-              </div>
-            </div>
+            
           </div>
 
         </div>
+        <div class="text-center mt-3">
+          <button>book a trail lesson</button>
+        </div>
       </div>
-      <button>book a trail lesson</button>
+    
     </div>
+    <ng-template #noClassdetails>
+      <p>please select your course to see more dtails</p>
+    </ng-template>
   </div>
 </div>

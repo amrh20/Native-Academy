@@ -38,14 +38,14 @@
 
       a {
         color: $main-color;
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 800;
       }
     }
 
     .filter_box-title {
       h3 {
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 600;
         color: $main-color;
       }
@@ -352,7 +352,7 @@
   .classes-wrapper {
     display: flex;
     top: 120px;
-    margin-bottom: 70px;
+    margin-bottom: 200px;
     position: relative;
 
     .classes-categories-wrapper {
@@ -673,11 +673,9 @@
       }
 
       .time-list-holder {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 100px));
-        gap: 10px;
+        display: flex;
         width: 100%;
-
+        align-items: center;
         button {
           border: 1px solid #5E2266;
           padding: 7px 15px;

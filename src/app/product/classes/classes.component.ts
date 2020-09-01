@@ -18,6 +18,9 @@ export class ClassesComponent implements OnInit {
   hideme= []
   courses: any
   showCourses: boolean= false
+  ClassDetails
+  teacherDetails
+  timeTables
   teachPath="http://nativeacademydashboard.native-tech.co/Images/TeacherImages/" 
   constructor(private activeRoute:ActivatedRoute,
     private productService:ProductService,
@@ -38,11 +41,17 @@ export class ClassesComponent implements OnInit {
     })
   }
   selectSubCatgory(e) {
-    console.log(e)
     this.homeService.getAllCoursesBySubCategoryId(e).subscribe((res:any) => {
-      console.log("courses", res.model)
       this.courses= res.model
       this.showCourses= true
+    })
+  }
+  selectClass(e) {
+    this.productService.getCourseData(e).subscribe((res:any) => {
+      this.ClassDetails= Object.keys(res.model);
+      this.teacherDetails= res.model.Teacher
+      this.timeTables= res.model.TimeTables
+      console.log("res",this.timeTables)
     })
   }
   show() {
