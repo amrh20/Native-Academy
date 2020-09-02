@@ -57,7 +57,7 @@ const routes: Routes = [
      component: ClassesComponent 
    },
    {
-     path : 'product/classes-details/:id',
+     path : 'product/classes-details',
      component: ClassDetailsComponent 
    },
    {

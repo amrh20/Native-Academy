@@ -1,15 +1,33 @@
 @import "../../variables.scss";
 
 :host {
+  .empty {
+    height: 100px;
+    margin-bottom: 50px;
+  }
+  .subscribe {
+    background-color: $main-color;
+    padding: 15px;
+    border-radius: 5px;
+    color: #fff;
+  }
+  .more-course-detials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    text-transform: capitalize;
+    border-left: 1px solid #ddd;
+    padding-left: 20px;
+  }
   .no-Courses {
     display: flex;
     justify-content: center;
     align-items: center;
     /* width: 100%; */
-    font-size: 23px;
+    font-size: 20px;
     text-transform: capitalize;
     font-weight: bold;
-    margin-left: 25%;
     height: 100%;
     width: 100%;
   }
@@ -237,7 +255,7 @@
     display: none;
 
     i {
-      font-size: 24px;
+      font-size: 20px;
       color: red;
       cursor: pointer;
     }
@@ -371,14 +389,14 @@
         border: 1px solid #ddd;
         border-left: 0;
         overflow: auto;
-
+   
         [dir=rtl] & {
           border-left: 1px solid #ddd;
           border-right: 0;
         }
-
+     
         p {
-          font-size: 20px;
+          font-size: 18px;
           font-weight: bold;
           text-transform: capitalize;
           line-height: 2;
@@ -457,17 +475,40 @@
 
         .class-name {
           color: #000;
-          font-size: 21px;
+          font-size: 18px;
           font-weight: bold;
-          margin-bottom: 10px;
+          margin-bottom: 30px;
+          text-align: center;
+          position: relative;
+          &:after {
+            position: absolute;
+            content: "";
+            bottom: -10px;
+            left: 50%;
+            background-color: $main-color;
+            height: 2px;
+            width: 115px;
+            transform: translate(-50%, -50%);
+          }
         }
       }
 
       .class-auther-info {
         display: flex;
-        flex-direction: column;
+        // flex-direction: column;
       }
-
+      .class-status,.class-rating {
+        i {
+          height: 25px;
+          border: 1px solid #5E2266;
+          width: 25px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          font-size: 14px;
+        }
+      }
       .about-auther {
         display: flex;
         align-items: center;
@@ -582,7 +623,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-
+      box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.17);
+      padding-bottom: 30px;
       .bluer-header {
         height: 300px;
         width: 100%;
@@ -630,6 +672,7 @@
 
       .time-holder {
         margin-top: 100px;
+        padding: 20px;
       }
 
       .time--title {
@@ -639,7 +682,7 @@
 
         i {
           margin-right: 10px;
-          font-size: 25px;
+          font-size: 20px;
 
           [dir=rtl] & {
             margin-left: 10px;
@@ -648,7 +691,7 @@
         }
 
         h3 {
-          font-size: 22px;
+          font-size: 20px;
           font-weight: bold;
           text-align: center;
           color: #000;

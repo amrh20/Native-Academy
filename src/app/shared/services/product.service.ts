@@ -239,5 +239,14 @@ export class ProductService {
     params = params.append('CourseId', CourseId);
     return this.http.get(`${this.apiBaseURL}/GetCourseData`,{params: params, headers: reqHeader })
   }
-
+  subscribeClass(CourseId) {
+    let authToken = localStorage.getItem("authToken")
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    })
+    let params= new HttpParams()
+    params = params.append('ClassId', CourseId);
+    return this.http.get(`${this.apiBaseURL}/SubscribeClass`,{params: params, headers: reqHeader })
+  }
 }

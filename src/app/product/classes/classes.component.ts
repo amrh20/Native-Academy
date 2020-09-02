@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/shared/services/product.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HomeService } from 'src/app/shared/services/home.service';
 
@@ -17,14 +17,17 @@ export class ClassesComponent implements OnInit {
   showFilter
   hideme= []
   courses: any
+  Courseloading: boolean;
   showCourses: boolean= false
   ClassDetails
   teacherDetails
   timeTables
+  IsSubscribed
+  courseId
   teachPath="http://nativeacademydashboard.native-tech.co/Images/TeacherImages/" 
   constructor(private activeRoute:ActivatedRoute,
     private productService:ProductService,
-    private toastr: ToastrService,private homeService:HomeService) { 
+    private toastr: ToastrService,private homeService:HomeService, private router: Router) { 
   }
 
   ngOnInit(): void {
@@ -41,9 +44,11 @@ export class ClassesComponent implements OnInit {
     })
   }
   selectSubCatgory(e) {
+    this.Courseloading= true
     this.homeService.getAllCoursesBySubCategoryId(e).subscribe((res:any) => {
       this.courses= res.model
       this.showCourses= true
+      this.Courseloading= false
     })
   }
   selectClass(e) {
@@ -51,7 +56,18 @@ export class ClassesComponent implements OnInit {
       this.ClassDetails= Object.keys(res.model);
       this.teacherDetails= res.model.Teacher
       this.timeTables= res.model.TimeTables
-      console.log("res",this.timeTables)
+      this.IsSubscribed= res.model.IsSubscribed
+      this.courseId= res.model.Id
+      console.log("res",this.courseId)
+    })
+  }
+  selectReserve(e) {
+    console.log(e,"dkdkdkdkd")
+    this.productService.subscribeClass(e).subscribe((res: any)=> {
+      this.toastr.success('subscribed successfully')
+      this.router.navigate(['product/classes-details'])
+    }, err=> {
+      console.log(err)
     })
   }
   show() {
