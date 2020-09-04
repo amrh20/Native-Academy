@@ -174,8 +174,8 @@
 
         </div>
         <div class="text-center mt-5 d-flex justify-content-around">
-          <button *ngIf="IsSubscribed" routerLink="/product/classes-details">view details</button>
-
+          <div class="alert alert-danger" *ngIf="errorLogin">{{errorLogin}}</div>
+          <button *ngIf="IsSubscribed" routerLink="/product/classes-details/{{courseId}}">view details</button>
           <div *ngIf="!IsSubscribed">
             <label for="subscribe" class="subscribe">reserve</label>
             <input type="radio" name="subscribe" id="subscribe" value="{{courseId}}"

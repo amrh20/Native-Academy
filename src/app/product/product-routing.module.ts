@@ -1,3 +1,4 @@
+import { PaymentPageComponent } from './payment-page/payment-page.component';
 
 import { NgModule, Component } from '@angular/core';
 import { ClassesComponent } from './classes/classes.component';
@@ -57,7 +58,7 @@ const routes: Routes = [
      component: ClassesComponent 
    },
    {
-     path : 'product/classes-details',
+     path : 'product/classes-details/:id',
      component: ClassDetailsComponent 
    },
    {
@@ -75,6 +76,10 @@ const routes: Routes = [
    {
      path: 'reviews', 
      component: ReviewsComponent
+   },
+   {
+     path: 'payment',
+     component: PaymentPageComponent
    }
 ];
 @NgModule({

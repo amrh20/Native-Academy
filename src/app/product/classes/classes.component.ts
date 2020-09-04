@@ -24,6 +24,7 @@ export class ClassesComponent implements OnInit {
   timeTables
   IsSubscribed
   courseId
+  errorLogin: string= ''
   teachPath="http://nativeacademydashboard.native-tech.co/Images/TeacherImages/" 
   constructor(private activeRoute:ActivatedRoute,
     private productService:ProductService,
@@ -62,11 +63,16 @@ export class ClassesComponent implements OnInit {
     })
   }
   selectReserve(e) {
-    console.log(e,"dkdkdkdkd")
     this.productService.subscribeClass(e).subscribe((res: any)=> {
       this.toastr.success('subscribed successfully')
-      this.router.navigate(['product/classes-details'])
+      this.router.navigate(['/product/classes-details'])
     }, err=> {
+      if(err.error.Message="Authorization has been denied for this request.") {
+        this.errorLogin= "please login first";
+      }
+      else if(err.erros.message="Your money in Rewards not enough") {
+        this.router.navigate(['/product/payment'])
+      }
       console.log(err)
     })
   }
