@@ -50,7 +50,6 @@ export class CommentsComponent implements OnInit {
         this.comments= res.model
       })
       localStorage.setItem('courseId',parm.id)
-   
     })
   }
  // comments

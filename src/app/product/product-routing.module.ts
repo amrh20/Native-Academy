@@ -1,3 +1,4 @@
+import { VideosComponent } from './videos/videos.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
 
 import { NgModule, Component } from '@angular/core';
@@ -80,6 +81,10 @@ const routes: Routes = [
    {
      path: 'payment',
      component: PaymentPageComponent
+   },
+   {
+     path: 'videos',
+     component: VideosComponent
    }
 ];
 @NgModule({

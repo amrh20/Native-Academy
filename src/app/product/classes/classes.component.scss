@@ -5,12 +5,14 @@
     height: 100px;
     margin-bottom: 20px;
   }
+
   .subscribe {
     background-color: $main-color;
     padding: 15px;
     border-radius: 5px;
     color: #fff;
   }
+
   .more-course-detials {
     display: flex;
     justify-content: center;
@@ -20,6 +22,7 @@
     border-left: 1px solid #ddd;
     padding-left: 20px;
   }
+
   .no-Courses {
     display: flex;
     justify-content: center;
@@ -389,12 +392,12 @@
         border: 1px solid #ddd;
         border-left: 0;
         overflow: auto;
-   
+
         [dir=rtl] & {
           border-left: 1px solid #ddd;
           border-right: 0;
         }
-     
+
         p {
           font-size: 18px;
           font-weight: bold;
@@ -462,6 +465,7 @@
         border: 1px solid transparent;
         transition: all ease-in 0.4s;
         border: 1px solid #f5f5f5;
+
         &.active,
         &:hover {
           border: 1px solid $main-color;
@@ -480,6 +484,7 @@
           margin-bottom: 30px;
           text-align: center;
           position: relative;
+
           &:after {
             position: absolute;
             content: "";
@@ -497,7 +502,9 @@
         display: flex;
         // flex-direction: column;
       }
-      .class-status,.class-rating {
+
+      .class-status,
+      .class-rating {
         i {
           height: 25px;
           border: 1px solid #5E2266;
@@ -509,6 +516,7 @@
           font-size: 14px;
         }
       }
+
       .about-auther {
         display: flex;
         align-items: center;
@@ -602,7 +610,7 @@
           color: #5E2266;
           background: #fff;
           transition: all ease-in 0.4s;
-           
+
           &:hover {
             background: #5E2266;
             color: #fff;
@@ -625,6 +633,7 @@
       align-items: center;
       box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.17);
       padding-bottom: 30px;
+
       .bluer-header {
         height: 300px;
         width: 100%;
@@ -719,6 +728,7 @@
         display: flex;
         width: 100%;
         align-items: center;
+
         button {
           border: 1px solid #5E2266;
           padding: 7px 15px;

@@ -125,10 +125,11 @@
             </ng-container>
 
             <ng-template #noSubCourse>
-               <div class="d-flex justify-content-center align-items-center" style="height: 100%;flex-direction: column;">
+              <div class="d-flex justify-content-center align-items-center"
+                style="height: 100%;flex-direction: column;">
                 <p class="text-capitalize">there are not courses for this language</p>
                 <img src="../../../assets/images/poverty.png" alt="" style="max-width: 100px" class="mt-3">
-               </div>
+              </div>
             </ng-template>
 
           </ng-container>
@@ -154,9 +155,9 @@
         <h2>{{teacherDetails.Name}}</h2>
         <p class="about-teacher">{{teacherDetails.Bio}}</p>
         <div class="time-holder">
-          <div class="time--title">
+          <div class="time--title" *ngIf="timeTables?.length">
             <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <h3>Choose Time</h3>
+            <h3>class time table</h3>
           </div>
           <div class="time-table" *ngIf="timeTables?.length">
             <div class="time-row" *ngFor="let time of timeTables">
@@ -166,12 +167,9 @@
                 <button>{{time.FromTime}}</button>
                 <span class="mx-2">to:</span>
                 <button>{{time.ToTime}}</button>
-
               </div>
             </div>
-
           </div>
-
         </div>
         <div class="text-center mt-5 d-flex justify-content-around">
           <div class="alert alert-danger" *ngIf="errorLogin">{{errorLogin}}</div>
