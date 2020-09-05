@@ -15,67 +15,7 @@
       </ul>
     </aside>
     <div class="details-content" *ngIf="show==0">
-      <!-- <div class="exams-tab-wrapper">
-        <div class="exam-list">
-          <div class="exam-card">
-            <div class="exam-content">
-              <h2 class="exam-name">English Exam</h2>
-              <div class="exam-info">
-                <div>
-                  09:00 am | 11:00 am
-                </div>
-                <div>
-                  <i class="fa fa-clock-o" aria-hidden="true"></i>
-                  <p>2 Hours</p>
-                </div>
-                <div>
-                  <i class="fa fa-question-circle" aria-hidden="true"></i>
-                  <p>6 Question</p>
-                </div>
-              </div>
-            </div>
-            <a href="" class="start-exam-btn">Start Exam</a>
-          </div>
-          <div class="exam-card">
-            <div class="exam-content">
-              <h2 class="exam-name">English Exam</h2>
-              <div class="exam-info">
-                <div>
-                  09:00 am | 11:00 am
-                </div>
-                <div>
-                  <i class="fa fa-clock-o" aria-hidden="true"></i>
-                  <p>2 Hours</p>
-                </div>
-                <div>
-                  <i class="fa fa-question-circle" aria-hidden="true"></i>
-                  <p>6 Question</p>
-                </div>
-              </div>
-            </div>
-            <p class="exam-result"> <span>29</span>/30</p>
-          </div>
-          <div class="exam-card">
-            <div class="exam-content">
-              <h2 class="exam-name">English Exam</h2>
-              <div class="exam-info">
-                <div>
-                  09:00 am | 11:00 am
-                </div>
-                <div>
-                  <i class="fa fa-clock-o" aria-hidden="true"></i>
-                  <p>2 Hours</p>
-                </div>
-                <div>
-                  <i class="fa fa-question-circle" aria-hidden="true"></i>
-                  <p>6 Question</p>
-                </div>
-              </div>
-            </div>
-            <span class="exam-dimmed">3 Days Left</span>
-          </div>
-        </div>
-      </div> -->
+      
       videos hereeee
     </div>
 
@@ -224,7 +164,23 @@
       </div>
     </div>
     <div class="details-content" *ngIf="show==3">
-      exams
+      <div class="exams-tab-wrapper">
+        <div class="exam-list">
+          <div class="exam-card" *ngFor="let exam of Exams">
+            <div class="exam-content">
+              <h2 class="exam-name">{{exam.Title}}</h2>
+              <div class="exam-info">
+                <div>
+                  {{exam.StartDate}} | {{exam.DeadlineDate}}
+                </div>
+              </div>
+            </div>
+            <a href="{{exam.ExamUrl}}" class="start-exam-btn" *ngIf="!examCkeck">Start Exam</a>
+            <span *ngIf="examCkeck && exam?.Degree">{{exam.Degree}}</span>
+          </div>
+          
+        </div>
+      </div>
     </div>
     <div class="details-content" *ngIf="show==4">
       <div class="time-table" *ngIf="timeTables?.length">

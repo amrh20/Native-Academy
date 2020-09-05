@@ -32,6 +32,8 @@ export class ClassDetailsComponent implements OnInit {
   videos
   url
   timeTables
+  Exams
+  examCkeck: Boolean
   textValue = 'initial value'
   pathImage="http://novoduxapi.native-tech.co/Images/StudentImages/"
   reviewform = new FormGroup({
@@ -58,6 +60,14 @@ export class ClassDetailsComponent implements OnInit {
       this.homeService.getCourseDetails(id).subscribe((res: any) => {
         console.log(res.model)
         this.timeTables=res.model.TimeTables
+        this.Exams=res.model.Exams
+        for (let i = 0; i < this.Exams.length; i++) {
+           console.log("this.Exams[i].DeadlineDate",this.Exams[i].DeadlineDate)
+           var d1 = new Date();
+           var d2 = new Date(this.Exams[i].DeadlineDate);
+           this.examCkeck= d1>d2
+           console.log(this.examCkeck)
+        }
       })
 
       this.productService.getComments(id).subscribe((res:any) => {
