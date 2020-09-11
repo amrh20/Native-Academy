@@ -9,11 +9,14 @@
       </div>
       <ul>
         <li *ngFor="let link of navLinks;let i= index">
-          <a (click)="text(i)">{{link}}</a>
+          <a (click)="text(i)">
+            <img [src]="link.img" alt="">
+            {{link.name}}
+          </a>
         </li>
       </ul>
     </aside>
-    <div class="details-content" *ngIf="show==0">    
+    <div class="details-content" *ngIf="show==0">
       videos hereeee
     </div>
     <div class="details-content" *ngIf="show==1">
@@ -44,7 +47,7 @@
                     <p class="comment">{{comment?.CreationDate}}
                     </p>
                   </div>
-    
+
                 </div>
               </div>
               <label for="{{comment?.Comment}}" class="comment-label">
@@ -52,8 +55,8 @@
                   (change)="selectOption($event.target.value)" class="d-none">
                 <span>{{comment?.Comment}}
                 </span>
-                <span (click)="hideme[i] = !hideme[i]" class="reply-label">.{{'reply' | translate}}</span>
-             
+                <span (click)="hideme[i] = !hideme[i]" class="reply-label">{{'reply' | translate}} <i class="fa fa-reply"></i></span>
+
                 <!-- <div >The content will show/hide</div> -->
               </label>
               <div class="replys" *ngFor="let reply of comment.Replies">
@@ -72,7 +75,7 @@
                       {{reply.ReplyText}}
                     </span>
                   </div>
-    
+
                 </div>
               </div>
               <div class="comment__reply" [hidden]="!hideme[i]">
@@ -93,16 +96,16 @@
             </div>
           </div>
         </div>
-    
+
       </div>
-  
+
     </div>
     <div class="details-content" *ngIf="show==2">
       <div class="container">
         <div class="course__reviews content">
           <!-- <h2 *ngIf="reviews?.length">{{'Reviews' | translate}}</h2> -->
           <div class="reviews__content" *ngIf="reviews?.length">
-            <div  *ngFor="let review of reviews">
+            <div *ngFor="let review of reviews">
               <div class="review_comment reply-cooomm">
                 <div class="review-desc">
                   <div>
@@ -168,20 +171,20 @@
               <h2 class="exam-name">{{exam.Title}}</h2>
               <div class="exam-info">
                 <div>
-                  <span class="">from</span>
-                   <img src="../../../assets/images/date.png" alt="">
-                   {{exam.StartDate}} 
-                   | 
-                  <span class="">to</span>
                   <img src="../../../assets/images/date.png" alt="">
-                   {{exam.DeadlineDate}}
+                  {{exam.StartDate}}
+                  |
+                  <img src="../../../assets/images/date.png" alt="">
+                  {{exam.DeadlineDate}}
                 </div>
+                <a href="{{exam.ExamUrl}}" class="start-exam-btn" *ngIf="!examCkeck">Start Exam <i _ngcontent-jjv-c119="" class="fa fa-chevron-right mx-2"></i></a>
+                <span *ngIf="examCkeck && exam?.Degree">{{exam.Degree}}</span>
               </div>
+         
             </div>
-            <a href="{{exam.ExamUrl}}" class="start-exam-btn" *ngIf="!examCkeck">Start Exam</a>
-            <span *ngIf="examCkeck && exam?.Degree">{{exam.Degree}}</span>
+         
           </div>
-          
+
         </div>
       </div>
     </div>
@@ -199,21 +202,42 @@
       </div>
     </div>
     <div class="details-content" *ngIf="show==5">
-       <div *ngFor="let meeting of courseMeetings" class="zoom">
-           <a href="{{meeting?.MeetingUrl}}">zoom meeting link</a>
-       </div>
+      <div *ngFor="let meeting of courseMeetings" class="zoom d-flex justify-content-between align-items-centr">
+        <div>
+          <h3>{{meeting.Note}}</h3>
+          <h4>{{meeting.MeetingTime}}</h4>
+          <p>{{meeting.MeetingDate}}</p>
+        </div>
+        <div>
+          <a href="{{meeting?.MeetingUrl}}" target="_blank">start lesson
+            <i class="fa fa-chevron-right mx-2"></i>
+          </a>
+        </div>
+      </div>
     </div>
     <aside class="student-list-holder">
+      <div class="text-center mb-5">
+        <img src="../../../assets/images/Annotation.png" alt="">
+      </div>
+      <h3 class="title">Teacher :</h3>
+      <div class="student-card mb-5">
+        <div class="student-img">
+          <img [src]="teachPath + teacher?.ProfileImage" *ngIf="teacher?.ProfileImage" />
+        </div>
+        <div class="student-info">
+          <h3>{{teacher?.Name}}</h3>
+        </div>
+      </div>
       <h3 class="title">Students List</h3>
       <div class="student-card" *ngFor="let student of studentDataLists">
         <div class="student-img">
-          <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50" alt="student" />
+          <img [src]="pathImage + student?.ProfileImage" *ngIf="student?.ProfileImage" />
         </div>
         <div class="student-info">
           <h3>{{student?.Name}}</h3>
         </div>
       </div>
-     
+
     </aside>
   </div>
 </div>

@@ -26,8 +26,8 @@ export class MainSliderComponent implements OnInit {
   ]
  // Slick slider config
  public sliderConfig: any = {
-  // autoplay: true,
-  autoplaySpeed: 2000,
+  autoplay: true,
+  autoplaySpeed: 3000,
   arrows: false,
   dots: true,
   rtl : localStorage.getItem('currentLanguage') === "ar" ? true : false,

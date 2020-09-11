@@ -1686,6 +1686,12 @@ li {
 	  font-size: 16px;
 	  font-weight: bold;
 	  color: #000;
+	  a {
+		  img {
+			  max-height: 25px;
+			  margin-right: 15px;
+		  }
+	  }
     }
     .active {
        a {
@@ -1780,13 +1786,14 @@ li {
             border: 1px solid #5E2266;
         }
       .exam-content {
-        background-color: #F9FBFC;
-        border-radius: 10px;
-        width: 100%;
-        height: 50px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+		background-color: #fff;
+		border-radius: 10px;
+		width: 100%;
+		padding: 15px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	
         // padding: 16px; 
     
         .exam-name{
@@ -1796,7 +1803,8 @@ li {
         }
         .exam-info{
             display: flex;
-            align-items: center;
+			align-items: center;
+			justify-content: space-between;
             > div{
                 margin-right: 25px;
                 font-size: 14px;
