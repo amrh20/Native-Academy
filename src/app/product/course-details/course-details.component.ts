@@ -28,6 +28,7 @@ export class CourseDetailsComponent implements OnInit {
   newarray: any[]= []
   videos
   url
+  courseMeetings
   textValue = 'initial value'
   pathImage="http://novoduxapi.native-tech.co/Images/StudentImages/"
   teachPath="http://novoduxapi.native-tech.co/Images/TeacherImages/" 
@@ -55,7 +56,7 @@ export class CourseDetailsComponent implements OnInit {
       let id =parm.id
       this.productService.getCourseDetails(id).subscribe((res: any) => {
         this.coursdetails= res.model
-       
+   
       })
       this.productService.getReviews(id).subscribe((res: any) => {
         this.reviews= res.model;
@@ -67,7 +68,6 @@ export class CourseDetailsComponent implements OnInit {
 
       this.productService.getCourseVideos(id).subscribe((res: any) => {
         this.videos= res.model
-
       })
     })
     this.checkLang= localStorage.getItem('currentLanguage') || 'en'

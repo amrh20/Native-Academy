@@ -1661,7 +1661,7 @@ li {
     box-shadow: 0 30px 30px 0 rgba(0, 0, 0, 0.1);
     .details-content {
       width: 55%;
-      background-color: #f9f9fc;
+      background-color: #efeff5;
       padding: 20px;
       min-height: 100vh;
       margin-top: 20px;
@@ -1678,13 +1678,14 @@ li {
     }
     ul {
       margin-top: 100px;
-    margin-left: 100px;
+      margin-left: 40px;
     li {
-      margin-bottom: 40px;
+      margin-bottom: 25px;
       text-transform: capitalize;
-      font-size: 20px;
       position: relative;
-    
+	  font-size: 16px;
+	  font-weight: bold;
+	  color: #000;
     }
     .active {
        a {

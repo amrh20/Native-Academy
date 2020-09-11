@@ -11,14 +11,11 @@
         <li *ngFor="let link of navLinks;let i= index">
           <a (click)="text(i)">{{link}}</a>
         </li>
-
       </ul>
     </aside>
-    <div class="details-content" *ngIf="show==0">
-      
+    <div class="details-content" *ngIf="show==0">    
       videos hereeee
     </div>
-
     <div class="details-content" *ngIf="show==1">
       <div class="course__comments content">
         <div class="row" class="comment-content">
@@ -171,7 +168,13 @@
               <h2 class="exam-name">{{exam.Title}}</h2>
               <div class="exam-info">
                 <div>
-                  {{exam.StartDate}} | {{exam.DeadlineDate}}
+                  <span class="">from</span>
+                   <img src="../../../assets/images/date.png" alt="">
+                   {{exam.StartDate}} 
+                   | 
+                  <span class="">to</span>
+                  <img src="../../../assets/images/date.png" alt="">
+                   {{exam.DeadlineDate}}
                 </div>
               </div>
             </div>
@@ -195,44 +198,22 @@
         </div>
       </div>
     </div>
+    <div class="details-content" *ngIf="show==5">
+       <div *ngFor="let meeting of courseMeetings" class="zoom">
+           <a href="{{meeting?.MeetingUrl}}">zoom meeting link</a>
+       </div>
+    </div>
     <aside class="student-list-holder">
       <h3 class="title">Students List</h3>
-      <div class="student-card">
+      <div class="student-card" *ngFor="let student of studentDataLists">
         <div class="student-img">
           <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50" alt="student" />
         </div>
         <div class="student-info">
-          <h3>Omar</h3>
-          <p>Business</p>
+          <h3>{{student?.Name}}</h3>
         </div>
       </div>
-      <div class="student-card">
-        <div class="student-img">
-          <img src="https://i.pinimg.com/originals/7f/79/6d/7f796d57218d9cd81a92d9e6e8e51ce4.png" alt="student" />
-        </div>
-        <div class="student-info">
-          <h3>Ahmed</h3>
-          <p>Art</p>
-        </div>
-      </div>
-      <div class="student-card active">
-        <div class="student-img">
-          <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50" alt="student" />
-        </div>
-        <div class="student-info">
-          <h3>Omar</h3>
-          <p>Business</p>
-        </div>
-      </div>
-      <div class="student-card">
-        <div class="student-img">
-          <img src="https://i.pinimg.com/originals/7f/79/6d/7f796d57218d9cd81a92d9e6e8e51ce4.png" alt="student" />
-        </div>
-        <div class="student-info">
-          <h3>Ahmed</h3>
-          <p>Art</p>
-        </div>
-      </div>
+     
     </aside>
   </div>
 </div>

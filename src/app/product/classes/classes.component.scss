@@ -2,7 +2,7 @@
 
 :host {
   .empty {
-    height: 100px;
+    height: 70px;
     margin-bottom: 20px;
   }
 
@@ -19,20 +19,20 @@
     align-items: center;
     font-weight: bold;
     text-transform: capitalize;
-    border-left: 1px solid #ddd;
     padding-left: 20px;
+    background: #FFF;
   }
 
   .no-Courses {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* width: 100%; */
-    font-size: 20px;
+    font-size: 16px;
     text-transform: capitalize;
     font-weight: bold;
     height: 100%;
     width: 100%;
+
   }
 
   .hide-filter {
@@ -194,7 +194,6 @@
 
   .filter {
     padding: 20px 15px;
-    border: 1px solid #ddd;
     background-color: #fff;
 
     // margin-bottom: 70px;
@@ -295,6 +294,7 @@
 
   .classes-wrapper {
     min-height: 500px;
+    box-shadow: 0 30px 30px 0 rgba(0, 0, 0, 0.1);
 
     .lds-ripple {
       top: 300px;
@@ -379,6 +379,7 @@
     .classes-categories-wrapper {
       width: 35%;
       display: flex;
+      background: #FFF;
 
       .main-categories-holder {
         width: 60%;
@@ -389,17 +390,10 @@
         text-align: center;
         padding: 0 20px;
         padding-top: 40px;
-        border: 1px solid #ddd;
-        border-left: 0;
         overflow: auto;
 
-        [dir=rtl] & {
-          border-left: 1px solid #ddd;
-          border-right: 0;
-        }
-
         p {
-          font-size: 18px;
+          font-size: 16px;
           font-weight: bold;
           text-transform: capitalize;
           line-height: 2;
@@ -448,6 +442,11 @@
     .classes-veiw-wrapper {
       width: 45%;
       padding: 0 35px;
+      background-color: #efeff5;
+      padding: 20px;
+      min-height: 100vh;
+      margin-top: 20px;
+      border-radius: 20px 20px 0 0;
 
       .classes-list-wrapper {
         display: flex;

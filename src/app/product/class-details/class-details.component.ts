@@ -33,8 +33,10 @@ export class ClassDetailsComponent implements OnInit {
   url
   timeTables
   Exams
+  courseMeetings
   examCkeck: Boolean
   textValue = 'initial value'
+  studentDataLists
   pathImage="http://novoduxapi.native-tech.co/Images/StudentImages/"
   reviewform = new FormGroup({
     reviewComment: new FormControl('', Validators.required),
@@ -50,7 +52,7 @@ export class ClassDetailsComponent implements OnInit {
   replyform = new FormGroup({
    reply: new FormControl('',Validators.required)
   })
-  navLinks = ["videos","comments","reviews","exams","time table"]
+  navLinks = ["videos","comments","reviews","exams","time table","Zoom Meeting"]
   constructor(private activeRoute: ActivatedRoute, private homeService: HomeService, private productService: ProductService,private toastr:ToastrService) { }
 
   ngOnInit(): void {
@@ -61,6 +63,8 @@ export class ClassDetailsComponent implements OnInit {
         console.log(res.model)
         this.timeTables=res.model.TimeTables
         this.Exams=res.model.Exams
+        this.studentDataLists= res.model.StudentDataLists
+        this.courseMeetings=  res.model.CourseMeetings
         for (let i = 0; i < this.Exams.length; i++) {
            console.log("this.Exams[i].DeadlineDate",this.Exams[i].DeadlineDate)
            var d1 = new Date();
