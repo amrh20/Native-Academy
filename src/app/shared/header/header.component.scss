@@ -71,6 +71,18 @@
     justify-content: center;
    }
  }
+ .header__logo {
+   font-size: 20px;
+   .first {
+     color: $main-color;
+     padding-bottom: 2px;
+     border-bottom: 2px solid $main-color;
+     margin-right: 3px;
+   }
+   .second {
+     color: #999;
+   }
+ }
   .header { 
         box-shadow: 0 0 8px 0 rgba(0,0,0,.17);    
         padding: 10px 0;

@@ -8,7 +8,8 @@
     .slider-content {
         text-align: center;
     margin: 100px 0;
-    min-height: 100vh;
+    height: 100vh;
+
     .head {
         width: 30%;
         margin: 0 auto;
@@ -24,6 +25,7 @@
     }
     img {
         margin: 0 auto;
-    }
+        max-height: 500px;
+    } 
     }
 }
