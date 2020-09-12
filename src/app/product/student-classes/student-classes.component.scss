@@ -1,0 +1,128 @@
+@import "../../variables.scss";
+
+.classes-content {
+    min-height: 100vh;
+    position: relative;
+    background: #e8ecf5;
+}
+
+:host {
+    .col-course {
+        max-width: 25%;
+        flex-basis: 25%;
+        padding: 0 10px;
+        margin-bottom: 30px;
+        @media (max-width: 420px) {
+            max-width: 100%;
+        flex-basis: 100%;
+        }
+        @media (min-width: 420.1px) and (max-width: 992px) {
+            max-width: 50%;
+            flex-basis: 50%;
+        }
+     
+    }
+    .student-courses-cotent {
+     margin-right: 60px;
+     @media (max-width: 768px) {
+         margin-right: 10px;
+     }
+    }
+    .courses-content {
+        background: #e8ecf5;
+    }
+    .lds-ripple {
+        top: 30%;
+        left: calc(50% + 150px);
+        [dir =rtl] & {
+            left: auto;
+            right: 50%;
+        }
+    } 
+    .student-courses {
+        position: relative;
+        top: 95px;
+        padding-bottom: 150px;
+        margin-left: 350px;
+        [dir= rtl] & {
+            margin-left: 20px;
+            margin-right: 300px;
+            @media (max-width: 768px) {
+                margin-right: 80px;
+                margin-left: 10px;
+            }
+        }
+        @media (max-width: 768px) {
+            margin-left: 80px;
+        }
+        .view-btn {
+            margin-bottom: 30px;
+            margin-right: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 10px 30px;
+            border-radius: 10px;
+            @media (max-width: 768px) {
+                display: block;
+                margin-right: 10px;
+                text-align: center;
+            }
+            p {
+                font-size: 18px;
+                font-weight: bold;
+                text-transform: capitalize;
+                color: $main-color;
+                @media (max-width: 380px) {
+                    margin-bottom: 10px;
+                }
+            }
+            button {
+                font-size: 14px;
+            }
+        }
+    }
+    ::ng-deep {
+        .original_price {
+           margin-right: 0;
+           margin-left: 20px;
+           color: #000;
+        }
+        ::ng-deep {
+            .br-unit {
+                font-size: 23px !important;
+            }
+            .br-unit:after {
+                font: normal normal normal 14px/1 FontAwesome;
+                font-family: "FontAwesome" !important;
+                content: "\f005" !important;
+                color: #231F20 !important;
+                display: inline-block;
+                padding-right: 3px;
+                vertical-align: middle;
+                font-weight: 900 !important;
+            }
+            .br {
+                margin: 0 !important;
+            }
+            .br-default .br-selected:after {
+                color: #EDB867 !important;
+            }
+        
+        }
+    }
+    
+    .empty-courses {
+        @extend .student-courses;
+        text-align: center;
+        top: 250px;
+        font-size: 20px;
+        text-transform: capitalize;
+        height: 100vh;
+    }
+    .load-container {
+        min-height: 100vh;
+    }
+}
+

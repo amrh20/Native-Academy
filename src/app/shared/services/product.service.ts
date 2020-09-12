@@ -196,6 +196,17 @@ export class ProductService {
     params = params.append('Page', '0');
     return this.http.get(`${this.apiBaseURL}/GetMyCourses`,{params: params, headers: reqHeader })
   }
+  studentClasses() {
+    let authToken = localStorage.getItem("authToken")
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    })
+    let params = new HttpParams();
+    params = params.append('Page', '0');
+    params= params.append('ClassificationId','2')
+    return this.http.get(`${this.apiBaseURL}/GetMyCourses`,{params: params, headers: reqHeader })
+  }
   applyPromoCode(PromoCode) {
     let authToken = localStorage.getItem("authToken")
     const reqHeader = new HttpHeaders({

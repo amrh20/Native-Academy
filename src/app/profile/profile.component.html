@@ -17,11 +17,8 @@
     </div>
     <div class="profile-content">
       <div class="top">
-
       </div>
       <div class="bottom">
-
-
         <div class="details-content" *ngIf="profile?.Email">
           <img src="../../assets/images/email.png" alt="">
           <p>{{profile?.Email}}</p>
@@ -86,14 +83,18 @@
         <a routerLink="/wallet">
           <img src="../../assets/images/Wallet.svg.png" alt="" class="side-menu-img">
           <span class="side-txt">{{'wallet' | translate}}</span>
-
         </a>
       </li>
       <li>
-
         <a routerLink="/myCourses">
           <img src="../../assets/images/graduation-cap.png" alt="" class="side-menu-img">
           <span class="side-txt">{{'myCourses' | translate}}</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/myClasses">
+          <img src="../../assets/images/graduation-cap.png" alt="" class="side-menu-img">
+          <span class="side-txt">My Classes</span>
         </a>
       </li>
       <li>
@@ -108,7 +109,6 @@
         <a routerLink="/ad-order">
           <img src="../../assets/images/Advertisements orders.png" alt="" class="side-menu-img">
           <span class="side-txt">{{'Advertisements-orders' | translate}}</span>
-
         </a>
       </li>
       <li>

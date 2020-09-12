@@ -1,3 +1,4 @@
+import { StudentClassesComponent } from './student-classes/student-classes.component';
 import { VideosComponent } from './videos/videos.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
 
@@ -85,6 +86,10 @@ const routes: Routes = [
    {
      path: 'videos',
      component: VideosComponent
+   },
+   {
+     path: 'myClasses',
+     component: StudentClassesComponent
    }
 ];
 @NgModule({

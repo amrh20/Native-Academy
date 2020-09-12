@@ -1,0 +1,109 @@
+<div class="classes-content">
+   
+        <div class="side__menu">
+            <ul>
+              <li>
+                <a routerLink="/profile">
+                  <img src="../../assets/images/profileimg.png" alt="" class="side-menu-img">
+                  <span class="side-txt">{{'profile' | translate}}</span>
+                </a>
+              </li>
+              <li>
+                <a routerLink="/wallet">
+                  <img src="../../assets/images/Wallet.svg.png" alt="" class="side-menu-img">
+                  <span class="side-txt">{{'wallet' | translate}}</span>
+                </a>
+              </li>
+              <li>
+                <a routerLink="/myCourses">
+                  <img src="../../assets/images/graduation-cap.png" alt="" class="side-menu-img">
+                  <span class="side-txt">{{'myCourses' | translate}}</span>
+                </a>
+              </li>
+              <li>
+                <a routerLink="/myClasses"  class="active-side">
+                  <img src="../../assets/images/graduation-cap.png" alt="" class="side-menu-img">
+                  <span class="side-txt">My Classes</span>
+                </a>
+              </li>
+              <li>
+        
+                <a routerLink="/contact-us">
+                  <img src="../../assets/images/Complaint.png" alt="" class="side-menu-img">
+                  <span class="side-txt"> {{'Complaint-Suggestion' | translate}}</span>
+        
+                </a>
+              </li>
+              <li>
+                <a routerLink="/ad-order">
+                  <img src="../../assets/images/Advertisements orders.png" alt="" class="side-menu-img">
+                  <span class="side-txt">{{'Advertisements-orders' | translate}}</span>
+                </a>
+              </li>
+              <li>
+                <a (click)="logout()" class="logout">
+                  <img src="../../assets/images/logout.png" alt="" class="side-menu-img">
+                  <span class="side-txt">{{'logout' | translate}}</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <ng-container *ngIf="loading; else loaded">
+            <div class="load-container">
+                <div class="lds-ripple">
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </ng-container>
+    
+        <ng-template #loaded>
+            <ng-container *ngIf="classes?.length; else noCourses">
+                <div class="student-courses">
+                    <div class="view-btn">
+                        <p>
+                            my classes
+                        </p>
+                        <a routerLink="/product/courses">
+                            <button>
+                                {{'view-all-courses' | translate}}
+                            </button>
+                        </a>
+                    </div>
+                    <div class="student-courses-cotent">
+                        <div class="row">
+                            <div class="col-course" *ngFor="let course of classes">
+                                <div class="cart">
+                                    <a routerLink="/product/classes-details/{{course.Id}}">
+                                        <div class="cart_img">
+                                            <img [src]="imagePath + course.Image" alt="">
+                                        </div>
+                                        <div class="cart_deatils">
+                                            <div class="product_rating">
+                                                <bar-rating [rate]="course.CourseRateValue" [readOnly]="true"></bar-rating>
+                                            </div>
+                                            <div class="product_name">
+                                                <h3>
+                                                    <ng-container *ngIf="checkLang== 'en'">{{course.Name}}</ng-container>
+                                                    <ng-container *ngIf="checkLang== 'ar'">{{course?.NameLT}}</ng-container>
+                                                </h3>
+                                            </div>
+                                            <div class="product_price">
+                                                <span class="new_price">{{course.PreviousCost}}</span>
+                                                <span class="original_price">{{course.CurrentCost}}</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-template #noCourses>
+                <div class="empty-courses">
+                    <p>there are no classes yet</p>
+                </div>
+            </ng-template>
+        </ng-template>
+</div>

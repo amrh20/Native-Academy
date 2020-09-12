@@ -25,11 +25,12 @@ import { CommentsComponent } from './comments/comments.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
 import { VideosComponent } from './videos/videos.component';
+import { StudentClassesComponent } from './student-classes/student-classes.component';
 
 
 @NgModule({
   declarations: [ProductComponent, CartComponent, WishlistComponent, CoursesComponent, CourseDetailsComponent,
-     SearchResultComponent, CollectionsComponent, SubCoursesComponent, AboutCompanyComponent, SuccessCourseComponent, InstructorComponent,SafePipe, ClassesComponent, ClassDetailsComponent, CommentsComponent,ReviewsComponent, PaymentPageComponent, VideosComponent],
+     SearchResultComponent, CollectionsComponent, SubCoursesComponent, AboutCompanyComponent, SuccessCourseComponent, InstructorComponent,SafePipe, ClassesComponent, ClassDetailsComponent, CommentsComponent,ReviewsComponent, PaymentPageComponent, VideosComponent, StudentClassesComponent],
   imports: [
     CommonModule,
     productRoutingModule,

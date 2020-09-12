@@ -42,8 +42,8 @@ export class LoginComponent implements OnInit {
     this.overlay =true
     let PhoneNumberWithKey= this.loginForm.value.phoneKey + this.loginForm.value.Phone
     let Password = this.loginForm.value.password
+    console.log(PhoneNumberWithKey,Password)
     this.authService.login(PhoneNumberWithKey,Password).subscribe((res: any) => {
-    // localStorage.setItem('ProfileImage',res.model.ProfileImage)
     localStorage.setItem('authToken',res.model.Token[0].access_token)
     this.loginForm.reset()
     this.router.navigate(['/home'])
@@ -51,14 +51,13 @@ export class LoginComponent implements OnInit {
     this.loginForm.value.Phone= " "
     this.loading= false
     this.overlay= false
-    // location.reload()
     },err => {
       this.loading= false
       this.overlay =false
-      if(err.error.errors.message == 'Student Not Register Yet') {
+      if(err.error.errors?.message == 'Student Not Register Yet') {
         this.loginError= "please register first"
       }
-      if(err.error.errors.message == 'Incorrect Password') {
+      if(err.error.errors?.message == 'Incorrect Password') {
        this.loginError= "Incorrect Password"
       }
       this.loginForm.value.password= ""
