@@ -16,7 +16,6 @@
     .head {
       width: 30%;
       margin: 0 auto;
-
       h1 {
         margin-bottom: 20px;
         font-weight: bold;
@@ -27,10 +26,14 @@
       p {
         margin-bottom: 70px;
       }
+      @media (max-width: 768px) {
+        width: 90%;
+      }
     }
 
     img {
       margin: 0 auto;
+      max-width: 100%;
     }
   }
 

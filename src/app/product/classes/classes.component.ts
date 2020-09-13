@@ -10,6 +10,7 @@ import { HomeService } from 'src/app/shared/services/home.service';
   styleUrls: ['./classes.component.scss']
 })
 export class ClassesComponent implements OnInit {
+  currentRate = 4.5;
   subCourses;
   listOfCategory;
   listOfSubCategory

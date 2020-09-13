@@ -1,6 +1,32 @@
 @import "../../variables.scss";
 
 :host {
+  .all {
+    position: relative;
+    display: inline-block;
+    font-size: 3rem;
+    color: #d3d3d3;
+  }
+
+  .full {
+    color: #ffa600;
+  }
+
+  .half {
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    color: #ffa600;
+  }
+
+
+  .classse-content {
+    background: #e8ecf5;
+    padding-top: 120px;
+    padding-bottom: 200px;
+    position: relative;
+  }
+
   .empty {
     height: 150px;
     margin-bottom: 20px;
@@ -295,7 +321,7 @@
   .classes-wrapper {
     min-height: 500px;
     box-shadow: 0 30px 30px 0 rgba(0, 0, 0, 0.1);
-
+    background-color: #fff;
     .lds-ripple {
       top: 300px;
     }
@@ -372,9 +398,7 @@
 
   .classes-wrapper {
     display: flex;
-    top: 120px;
-    margin-bottom: 200px;
-    position: relative;
+
 
     .classes-categories-wrapper {
       width: 35%;
@@ -632,6 +656,7 @@
       align-items: center;
       padding-bottom: 30px;
       margin-top: 20px;
+
       .bluer-header {
         height: 300px;
         width: 100%;
@@ -751,5 +776,3 @@
     }
   }
 }
-
-   
