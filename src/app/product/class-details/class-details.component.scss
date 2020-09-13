@@ -10,7 +10,19 @@
     margin-left: 80px;
   }
 }
-
+.logo {
+  font-size: 20px;
+  margin-top: 30px;
+}
+.first {
+  color: $main-color;
+  padding-bottom: 2px;
+  border-bottom: 2px solid $main-color;
+  margin-right: 3px;
+}
+.second {
+  color: #999;
+}
 
 :host {
   .reply-label {

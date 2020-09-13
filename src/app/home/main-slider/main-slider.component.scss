@@ -3,16 +3,18 @@
 :host {
   .main__slider {
     position: relative;
-    top: 70px;
-    height: calc(100vh - 100px);
+    // top: 70px;
+    // height: calc(100vh - 100px);
+    // overflow: hidden;
     overflow: hidden;
+    height: 100vh;
   }
 
   .slider-content {
     text-align: center;
     margin: 100px 0;
     height: 100vh;
-
+    top: 20px;
     .head {
       width: 30%;
       margin: 0 auto;
@@ -34,6 +36,13 @@
     img {
       margin: 0 auto;
       max-width: 100%;
+      max-height: calc(100vh - 400px);
+      @media (min-width: 992px) and (max-width: 1200px) {
+        min-height: calc(100vh - 350px);
+      }
+      @media  (min-width: 1200.1px)  {
+        min-height: calc(100vh - 300px);
+      }
     }
   }
 
