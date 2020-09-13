@@ -1,5 +1,15 @@
 @import "../../variables.scss";
 :host {
+    .wrapper {
+        background: #fff;
+        box-shadow: 0 30px 30px 0 rgba(0, 0, 0, 0.1);
+    }
+    .products_widget {
+        background-color: #efeff5;
+        padding: 30px;
+        margin: 20px;
+        border-radius: 10px;
+    }
     .collection {
         position: relative;
         top: 100px;
@@ -142,7 +152,6 @@
     }
     .filter {
         padding: 20px 15px;
-        border: 1px solid #ddd;
         background-color: #fff;
         margin-bottom: 70px;
         @media (max-width: 992px) {

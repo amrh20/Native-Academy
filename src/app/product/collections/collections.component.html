@@ -6,7 +6,7 @@
     <ng-template #loaded>
         <div class="container">
             <button class="filter-btn" (click)="show()">{{'show-filter' | translate}}</button>
-            <div class="row">
+            <div class="row wrapper">
                 <div class="filter_col" [ngClass]="{'show-filter': showFilter}">
                     <div class="filter">
                         <div class="close" (click)="close()">
@@ -42,7 +42,7 @@
                 </div>
                 <div class="products_col">
                     <div class="products_widget">
-                        <div class="row">
+                        <div class="row m-0">
                             <div class="course-col" *ngFor="let course of courses">
                                 <app-course-item [course]="course"></app-course-item>
                             </div>
