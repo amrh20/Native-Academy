@@ -46,11 +46,20 @@
       <div class="sub-categories-holder">
         <ng-container *ngIf="listOfSubCategory?.length; else NoCat">
           <ul>
-            <li *ngFor="let subCatgories of listOfSubCategory">
-              <input type="radio" id="{{subCatgories.Name}}" name="test" value="{{subCatgories.Id}}"
-                (change)="selectSubCatgory($event.target.value)" class="subcategory">
-              <label for="{{subCatgories.Name}}">{{subCatgories.Name}}</label>
-            </li>
+            <ng-container *ngIf="checkLang == 'en'">
+              <li *ngFor="let subCatgories of listOfSubCategory">
+                <input type="radio" id="{{subCatgories.Name}}" name="test" value="{{subCatgories.Id}}"
+                  (change)="selectSubCatgory($event.target.value)" class="subcategory">
+                <label for="{{subCatgories.Name}}">{{subCatgories.Name}}</label>
+              </li>
+            </ng-container>
+            <ng-container *ngIf="checkLang == 'ar'">
+              <li *ngFor="let subCatgories of listOfSubCategory">
+                <input type="radio" id="{{subCatgories.NameLT}}" name="test" value="{{subCatgories.Id}}"
+                  (change)="selectSubCatgory($event.target.value)" class="subcategory">
+                <label for="{{subCatgories.NameLT}}">{{subCatgories.NameLT}}</label>
+              </li>
+            </ng-container>
           </ul>
         </ng-container>
         <ng-template #NoCat>

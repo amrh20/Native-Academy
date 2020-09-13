@@ -25,7 +25,7 @@ import { ClickOutsideModule } from 'ng-click-outside';
     ClickOutsideModule
     ],
   exports:[HeaderComponent,SlickCarouselModule,FooterComponent,CourseItemComponent,
-    FilterComponent,TranslateModule,SearchComponent,ClickOutsideModule]
+    FilterComponent,TranslateModule,SearchComponent,ClickOutsideModule,BarRatingModule]
 })
 export class SharedModule { 
 

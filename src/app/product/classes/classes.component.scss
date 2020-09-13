@@ -630,9 +630,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.17);
       padding-bottom: 30px;
-
+      margin-top: 20px;
       .bluer-header {
         height: 300px;
         width: 100%;
@@ -752,3 +751,5 @@
     }
   }
 }
+
+   

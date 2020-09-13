@@ -144,5 +144,12 @@
   },
   "rulesDirectory": [
     "codelyzer"
+  ],
+  "no-import-side-effect": [
+    true,
+    {
+      "ignore-module": "(core-js/.*|zone\\.js/.*|@angular/localize/init)$"
+    }
   ]
+  
 }

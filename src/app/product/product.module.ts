@@ -26,6 +26,7 @@ import { ReviewsComponent } from './reviews/reviews.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
 import { VideosComponent } from './videos/videos.component';
 import { StudentClassesComponent } from './student-classes/student-classes.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { StudentClassesComponent } from './student-classes/student-classes.compo
     FormsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(),
-    MatTabsModule
+    MatTabsModule,
+    NgbModule
     ]
 })
 export class ProductModule { }
