@@ -321,6 +321,7 @@
     min-height: 500px;
     box-shadow: 0 30px 30px 0 rgba(0, 0, 0, 0.1);
     background-color: #fff;
+
     .lds-ripple {
       top: 300px;
     }
@@ -441,7 +442,7 @@
 
             &.active,
             &:hover {
-              background-color: #5E2266;
+              background-color: $main-color;
 
               label {
                 color: #FFF;
@@ -449,7 +450,7 @@
             }
 
             a {
-              color: #5E2266;
+              color: $main-color;
               font-size: 16px;
               font-weight: 500;
             }
@@ -529,7 +530,7 @@
       .class-rating {
         i {
           height: 25px;
-          border: 1px solid #5E2266;
+          border: 1px solid $main-color;
           width: 25px;
           display: flex;
           justify-content: center;
@@ -572,7 +573,7 @@
           }
 
           p {
-            color: #DDD;
+            color: #989898;
             font-size: 12px;
             font-weight: 400;
           }
@@ -620,21 +621,21 @@
           span {
             font-size: 13px;
             font-weight: 400;
-            color: #DDD;
+            color: #989898;
           }
         }
 
         a {
-          border: 1px solid #5E2266;
+          border: 1px solid $main-color;
           padding: 7px 15px;
           text-transform: capitalize;
           border-radius: 10px;
-          color: #5E2266;
+          color: $main-color;
           background: #fff;
           transition: all ease-in 0.4s;
 
           &:hover {
-            background: #5E2266;
+            background: $main-color;
             color: #fff;
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
           }
@@ -752,16 +753,16 @@
         align-items: center;
 
         button {
-          border: 1px solid #5E2266;
+          border: 1px solid $main-color;
           padding: 7px 15px;
           text-transform: capitalize;
           border-radius: 10px;
-          color: #5E2266;
+          color: $main-color;
           background: #fff;
           transition: all ease-in 0.4s;
 
           &:hover {
-            background: #5E2266;
+            background: $main-color;
             color: #fff;
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
           }

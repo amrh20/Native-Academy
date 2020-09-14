@@ -31,12 +31,13 @@
         height: 100vh;
     }
     .emptyCart {
-        height: 100vh;
         position: relative;
-        top: 200px;
         text-transform: capitalize;
         text-align: center;
-        font-size: 20px;
+        img {
+            max-width: 100%;       
+            max-height: calc(100vh - 250px);
+        }
     }
     .cart_widget {
         position: relative;

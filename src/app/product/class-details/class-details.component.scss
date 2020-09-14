@@ -10,16 +10,19 @@
     margin-left: 80px;
   }
 }
+
 .logo {
   font-size: 20px;
   margin-top: 30px;
 }
+
 .first {
   color: $main-color;
   padding-bottom: 2px;
   border-bottom: 2px solid $main-color;
   margin-right: 3px;
 }
+
 .second {
   color: #999;
 }
@@ -347,7 +350,7 @@
     h4 {
       margin-bottom: 10px;
       color: $main-color;
-      font-size: 22px;
+      font-size: 33px;
       font-weight: bold;
     }
 
@@ -370,7 +373,7 @@
   .review_comment {
     margin-bottom: 20px;
     padding: 10px;
- 
+
 
     [dir=rtl] & {
       text-align: right;
@@ -386,7 +389,7 @@
       align-items: flex-end;
       max-width: 100%;
       word-break: break-word;
-        }
+    }
 
     .replys {
       margin-left: 75px;

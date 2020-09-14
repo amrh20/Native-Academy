@@ -12,26 +12,26 @@ export class WishlistComponent implements OnInit {
   loaded: boolean
   overlayDelete: boolean
   checkLang
-  imagePath= "http://novoduxapi.native-tech.co/Images/CourseImages/";
-  constructor(private productService:ProductService,private toastr: ToastrService) { }
+  imagePath = "http://nativeacademydashboard.native-tech.co/Images/CourseImages/";
+  constructor(private productService: ProductService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.productService.getMyFavorites().subscribe((res: any) => {
-      this.myFavorites =res.model
-      this.loaded =false
+      this.myFavorites = res.model
+      this.loaded = false
     })
-    this.checkLang= localStorage.getItem('currentLanguage') || 'en'
+    this.checkLang = localStorage.getItem('currentLanguage') || 'en'
   }
-  deleteitem(CourseId,index) {
-   this.overlayDelete= true
-   this.productService.deleteCourseFromFavourite(CourseId).subscribe(res => {
-     this.myFavorites.splice(index,1)
-    this.toastr.success('your item deleted succssfully')
-    this.overlayDelete= false
-   }, err => {
-     this.toastr.error('something error')
-     this.overlayDelete= false
-   })
+  deleteitem(CourseId, index) {
+    this.overlayDelete = true
+    this.productService.deleteCourseFromFavourite(CourseId).subscribe(res => {
+      this.myFavorites.splice(index, 1)
+      this.toastr.success('your item deleted succssfully')
+      this.overlayDelete = false
+    }, err => {
+      this.toastr.error('something error')
+      this.overlayDelete = false
+    })
   }
   addToCart(CourseId) {
     // localStorage.setItem('color', JSON.stringify(true))

@@ -1,15 +1,13 @@
 @import "../../variables.scss";
 .empty_whishlist {
-    min-height: 400px;
     position: relative;
-    .content {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-transform: capitalize;
-        font-size: 20px;
-        color: $main-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 120px;
+    margin-bottom: 100px;
+    img {
+        max-height: calc(100vh - 250px);
     }
 }
 .wishlist_wrapper {
@@ -29,7 +27,6 @@
    
 }
 .wishlist_wrapper .wishlist_widget {
-    background-color: #f7f7f7;
     padding: 30px 0;
 }
 .wishlist_wrapper .wishlist_widget .wishList {

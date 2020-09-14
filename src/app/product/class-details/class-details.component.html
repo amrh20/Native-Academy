@@ -2,8 +2,8 @@
   <div class="class-details-wrapper">
     <aside class="exams-tabs-link">
       <div class="logo"><a routerLink="/home">
-        <span  class="first">Native</span>
-        <span  class="second">Academy</span>
+          <span class="first">Native</span>
+          <span class="second">Academy</span>
         </a>
       </div>
       <ul>
@@ -212,7 +212,7 @@
         <div>
           <h3>{{meeting.Note}}</h3>
           <h4>{{meeting.MeetingTime}}</h4>
-          <p>{{meeting.MeetingDate}}</p>
+          <p>{{meeting.MeetingDate | date  }}</p>
         </div>
         <div>
           <a href="{{meeting?.MeetingUrl}}" target="_blank">start lesson
@@ -238,7 +238,7 @@
       <div class="student-card" *ngFor="let student of studentDataLists">
         <div class="student-img">
           <ng-container *ngIf="student?.ProfileImage; else noImge">
-            <img [src]="pathImage + student?.ProfileImage"/>
+            <img [src]="pathImage + student?.ProfileImage" />
           </ng-container>
           <ng-template #noImge>
             <img src="../../../assets/images/Profileuser.png" alt="">

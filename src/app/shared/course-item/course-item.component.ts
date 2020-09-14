@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 export class CourseItemComponent implements OnInit {
   @Input() course: Course;
   errorMsg: string
-  imagePath = "http://novoduxadmin.native-tech.co/Images/CourseImages/";
+  imagePath = "http://nativeacademydashboard.native-tech.co/Images/CourseImages/";
   checkLang
   color: boolean
   favs
@@ -21,8 +21,8 @@ export class CourseItemComponent implements OnInit {
     this.checkLang = localStorage.getItem('currentLanguage') || 'en'
     this.productService.getAllCourses().subscribe((res: any) => {
 
-     })
-  
+    })
+
   }
   addToFav(CourseId) {
     this.productService.addFavourite(CourseId).subscribe(res => {
@@ -50,7 +50,7 @@ export class CourseItemComponent implements OnInit {
       else if (err.error.errors?.message === "This Course In your cart") {
         this.toastr.error('This Course In your cart')
       }
-      else if(err.error.errors?.message ==="This Course In your courses"){
+      else if (err.error.errors?.message === "This Course In your courses") {
         this.toastr.error('This Course In your courses')
       }
       else {
