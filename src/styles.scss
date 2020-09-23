@@ -1932,6 +1932,9 @@ li {
     min-height: 100vh;
     margin-top: 20px;
     border-radius: 20px 20px 0 0;
+    [dir= rtl] & {
+      text-align: right;
+    }
   }
 }
 
@@ -1990,6 +1993,10 @@ li {
         top: 35%;
       }
     }
+  }
+
+  [dir= rtl] & {
+    text-align: right;
   }
 }
 
@@ -2051,6 +2058,10 @@ li {
         right: 15px;
       }
     }
+  }
+
+  [dir= rtl] & {
+    text-align: right;
   }
 }
 
@@ -2114,6 +2125,10 @@ li {
             margin-right: 8px;
           }
         }
+      }
+
+      [dir=rtl] & {
+        text-align: right;
       }
     }
 

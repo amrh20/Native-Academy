@@ -62,7 +62,12 @@ export class ClassDetailsComponent implements OnInit {
   { name: "exams", img: "../../assets/images/examinatio.png" },
   { name: "time table", img: "../../assets/images/table.png" },
   { name: "Zoom Meeting", img: "../../assets/images/zoom.png" }]
-
+  navLinksLT = [{ name: "الفيديوهات", img: "../../assets/images/video-icon.png" },
+  { name: "التعلقيات", img: "../../assets/images/comment-icon.png" },
+  { name: "التقييمات", img: "../../assets/images/review-icon.png" },
+  { name: "الامتحانات", img: "../../assets/images/examinatio.png" },
+  { name: "المواعيد المتاحه", img: "../../assets/images/table.png" },
+  { name: "المقابله عبر زوم", img: "../../assets/images/zoom.png" }]
 
 
   // ,"comments",
@@ -73,6 +78,8 @@ export class ClassDetailsComponent implements OnInit {
   constructor(private activeRoute: ActivatedRoute, private homeService: HomeService, private productService: ProductService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    this.checkLang = localStorage.getItem('currentLanguage') || 'en'
+
     this.activeRoute.params.subscribe(parm => {
       let id = parm.id
       localStorage.setItem('classId', id)

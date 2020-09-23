@@ -7,12 +7,22 @@
         </a>
       </div>
       <ul>
-        <li *ngFor="let link of navLinks;let i= index">
-          <a (click)="text(i)">
-            <img [src]="link.img" alt="">
-            {{link.name}}
-          </a>
-        </li>
+        <ng-container *ngIf="checkLang == 'en'">
+          <li *ngFor="let link of navLinks;let i= index">
+            <a (click)="text(i)">
+              <img [src]="link.img" alt="">
+              {{link.name}}
+            </a>
+          </li>
+        </ng-container>
+        <ng-container *ngIf="checkLang == 'ar'">
+          <li *ngFor="let link of navLinksLT;let i= index">
+            <a (click)="text(i)">
+              <img [src]="link.img" alt="">
+              {{link.name}}
+            </a>
+          </li>
+        </ng-container>
       </ul>
     </aside>
     <div class="details-content" *ngIf="show==0">
@@ -175,7 +185,9 @@
         <div class="exam-list">
           <div class="exam-card" *ngFor="let exam of Exams">
             <div class="exam-content">
-              <h2 class="exam-name">{{exam.Title}}</h2>
+              <ng-container *ngIf="checkLang == 'ar'">  <h2 class="exam-name">{{exam.TitleLT}}</h2></ng-container>
+              <ng-container *ngIf="checkLang == 'en'">  <h2 class="exam-name">{{exam.Title}}</h2></ng-container>
+
               <div class="exam-info">
                 <div>
                   <img src="../../../assets/images/date.png" alt="">
@@ -184,7 +196,7 @@
                   <img src="../../../assets/images/date.png" alt="">
                   {{exam.DeadlineDate}}
                 </div>
-                <a href="{{exam.ExamUrl}}" class="start-exam-btn" *ngIf="exam.Check">Start Exam <i
+                <a href="{{exam.ExamUrl}}" class="start-exam-btn" *ngIf="exam.Check">{{'Start-Exam' | translate}} <i
                     class="fa fa-chevron-right mx-2"></i></a>
                 <span *ngIf="!exam.Check&&exam?.Degree">{{exam.Degree}}</span>
 
@@ -199,9 +211,9 @@
         <div class="time-row" *ngFor="let time of timeTables">
           <div class="time--day">{{time.Day}}</div>
           <div class="time-list-holder">
-            <span class="mx-2">from: </span>
+            <span class="mx-2">{{'from' | translate}}: </span>
             <button>{{time.FromTime}}</button>
-            <span class="mx-2">to:</span>
+            <span class="mx-2">{{'to' | translate}}:</span>
             <button>{{time.ToTime}}</button>
           </div>
         </div>
@@ -215,7 +227,7 @@
           <p>{{meeting.MeetingDate | date  }}</p>
         </div>
         <div>
-          <a href="{{meeting?.MeetingUrl}}" target="_blank">start lesson
+          <a href="{{meeting?.MeetingUrl}}" target="_blank">{{'start-lesson' | translate}}
             <i class="fa fa-chevron-right mx-2"></i>
           </a>
         </div>
@@ -225,18 +237,20 @@
       <div class="text-center mb-5">
         <img src="../../../assets/images/Annotation.png" alt="">
       </div>
-      <h3 class="title">Teacher :</h3>
+      <h3 class="title">{{'Teacher' | translate}} :</h3>
       <div class="student-card mb-5">
-        <div class="student-img">
+        <div class="student-img mx-2">
           <img [src]="teachPath + teacher?.ProfileImage" *ngIf="teacher?.ProfileImage" />
         </div>
         <div class="student-info">
-          <h3>{{teacher?.Name}}</h3>
+         
+          <ng-container *ngIf="checkLang == 'ar'">   <h3>{{teacher?.NameLT}}</h3></ng-container>
+          <ng-container *ngIf="checkLang == 'en'">   <h3>{{teacher?.Name}}</h3></ng-container>
         </div>
       </div>
-      <h3 class="title">Students List</h3>
+      <h3 class="title">{{'Students-List' | translate}}</h3>
       <div class="student-card" *ngFor="let student of studentDataLists">
-        <div class="student-img">
+        <div class="student-img mx-2">
           <ng-container *ngIf="student?.ProfileImage; else noImge">
             <img [src]="pathImage + student?.ProfileImage" />
           </ng-container>

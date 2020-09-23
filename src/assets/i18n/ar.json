@@ -137,7 +137,7 @@
     "discount": "خصم",
     "subtotal": "اجمالي",
     "referral-code": "كود الاحاله",
-    "classes": "الدروس",
+    "Classes": "الدروس",
     "Please-Choose-Your-Class-First": "من فضلك اختر مستواك التعليمي اولا",
     "Please-Choose-Your-Class-And-Language-First": "من فضلك اختر مستواك التعليمي واللغه اولا",
     "Please-Select-Your-Course-To-See-More-Details": "من فضلك اختر الدرس اولا كي تري مزيد من التفاصيل",
@@ -145,5 +145,11 @@
     "ratings": "تقييم",
     "per/month": "خلال شهر",
     "there-are-not-courses-for-this-language": "لا يوجد دروس لهذه اللغه",
-    "class-time-table": "المواعيد المتاحه لهذا الدرس"
+    "class-time-table": "المواعيد المتاحه لهذا الدرس",
+    "Start-Exam": "ابدا الامتحان",
+    "from": "من",
+    "to": "الي",
+    "start-lesson": "ابدا الدرس",
+    "Teacher": "المدرس",
+    "Students-List": "قائمة الطلبه"
 }
