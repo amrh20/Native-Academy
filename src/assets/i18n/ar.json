@@ -63,7 +63,7 @@
     "add-comment": "اضافه تعليق",
     "Review-title": "عنوان التقييم",
     "write-your-comment": "أكتب تعليقك",
-    "reserve":"اطلب",
+    "reserve":"حجز",
     "write-your-reply": "أكتب الرد",
     "related-courses": "كورسات ذات صلة",
     "image": "الصورة",
@@ -136,5 +136,14 @@
     "order-now": "أطلب الان",
     "discount": "خصم",
     "subtotal": "اجمالي",
-    "referral-code": "كود الاحاله"
+    "referral-code": "كود الاحاله",
+    "classes": "الدروس",
+    "Please-Choose-Your-Class-First": "من فضلك اختر مستواك التعليمي اولا",
+    "Please-Choose-Your-Class-And-Language-First": "من فضلك اختر مستواك التعليمي واللغه اولا",
+    "Please-Select-Your-Course-To-See-More-Details": "من فضلك اختر الدرس اولا كي تري مزيد من التفاصيل",
+    "participant": "مشترك",
+    "ratings": "تقييم",
+    "per/month": "خلال شهر",
+    "there-are-not-courses-for-this-language": "لا يوجد دروس لهذه اللغه",
+    "class-time-table": "المواعيد المتاحه لهذا الدرس"
 }

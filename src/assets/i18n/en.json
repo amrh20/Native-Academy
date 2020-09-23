@@ -136,5 +136,14 @@
      "order-now": "order now",
      "discount": "discount",
     "subtotal": "subtotal",
-    "referral-code": "referral code"
+    "referral-code": "referral code",
+    "classes": "classes",
+    "Please-Choose-Your-Class-First":"Please Choose Your Class First",
+    "Please-Choose-Your-Class-And-Language-First":" Please Choose Your Class And Language First",
+    "Please-Select-Your-Course-To-See-More-Details": "Please Select Your Course To See More Details",
+    "participant": "participant",
+    "ratings": "ratings",
+    "per/month": "per/month",
+    "there-are-not-courses-for-this-language": "there are not courses for this language",
+    "class-time-table": "class time table"
 }

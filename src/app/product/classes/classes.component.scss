@@ -46,6 +46,9 @@
     text-transform: capitalize;
     padding-left: 20px;
     background: #FFF;
+    [dir= rtl] & {
+      text-align: right;
+    }
   }
 
   .no-Courses {
@@ -519,6 +522,10 @@
             transform: translate(-50%, -50%);
           }
         }
+
+        [dir= rtl] & {
+          text-align: right;
+        }
       }
 
       .class-auther-info {
@@ -613,11 +620,11 @@
         }
 
         h2 {
-          color: #000;
+          color: $main-color;
           font-size: 16px;
           font-weight: bold;
           margin-bottom: 30px;
-
+          font-size: 22px;
           span {
             font-size: 13px;
             font-weight: 400;
