@@ -83,6 +83,9 @@
                   </div>
                 </ng-container>        
             </li>  
+            <li (click)="showMenu()">
+              <a routerLink="/product/classes">{{'classes' | translate}}</a>
+            </li>
             <li *ngIf="loggedIn()" (click)="showMenu()">
               <a routerLink="product/cart">{{'my-cart' | translate}}</a>
             </li>  

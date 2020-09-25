@@ -103,7 +103,7 @@
             max-width: 20%;
             flex-basis: 20%;
             cursor: pointer;
-            @media (max-width:768px) {
+            @media (max-width:992px) {
               max-width: 100%;
               flex-basis: 100%;
             }
@@ -257,7 +257,7 @@
         }
     }      
   .header__navbar {
-    @media (max-width: 768px) {
+    @media (max-width: 992px) {
       display: none;
     }
   }   
@@ -268,13 +268,13 @@
   
   // responsive 
   .desktop {
-    @media (max-width: 768px) {
+    @media (max-width: 992px) {
       display: none;
     }
   }
   .mobile {
     display: none;
-    @media (max-width:768px) {
+    @media (max-width:992px) {
       display: block;
       max-width: 100%;
       flex-basis: 100%;
