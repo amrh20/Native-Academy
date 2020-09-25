@@ -48,17 +48,27 @@
           <ng-container *ngIf="listOfSubCategory?.length; else NoCat">
             <ul>
               <ng-container *ngIf="checkLang == 'en'">
-                <li *ngFor="let subCatgories of listOfSubCategory">
+                <li *ngFor="let subCatgories of listOfSubCategory" class="d-none d-lg-block">
                   <input type="radio" id="{{subCatgories.Name}}" name="test" value="{{subCatgories.Id}}"
                     (change)="selectSubCatgory($event.target.value)" class="subcategory">
                   <label for="{{subCatgories.Name}}">{{subCatgories.Name}}</label>
                 </li>
+                <li *ngFor="let subCatgories of listOfSubCategory" class="d-block d-lg-none">
+                  <input type="radio" id="{{subCatgories.Name}}" name="test" value="{{subCatgories.Id}}"
+                    (change)="selectSubCatgory($event.target.value)"  class="subcategory">
+                  <label for="{{subCatgories.Name}}" (click)="openopUp()">{{subCatgories.Name}}</label>
+                </li>
               </ng-container>
               <ng-container *ngIf="checkLang == 'ar'">
-                <li *ngFor="let subCatgories of listOfSubCategory">
-                  <input type="radio" id="{{subCatgories.NameLT}}" name="test" value="{{subCatgories.Id}}"
+                <li *ngFor="let subCatgories of listOfSubCategory" class="d-none d-lg-block">
+                  <input type="radio" id="{{subCatgories.Name}}" name="test" value="{{subCatgories.Id}}"
                     (change)="selectSubCatgory($event.target.value)" class="subcategory">
-                  <label for="{{subCatgories.NameLT}}">{{subCatgories.NameLT}}</label>
+                  <label for="{{subCatgories.Name}}">{{subCatgories.NameLT}}</label>
+                </li>
+                <li *ngFor="let subCatgories of listOfSubCategory" class="d-block d-lg-none">
+                  <input type="radio" id="{{subCatgories.Name}}" name="test" value="{{subCatgories.Id}}"
+                    (change)="selectSubCatgory($event.target.value)"  class="subcategory">
+                  <label for="{{subCatgories.Name}}" (click)="openopUp()">{{subCatgories.NameLT}}</label>
                 </li>
               </ng-container>
             </ul>
@@ -178,7 +188,7 @@
           <div class="time-holder">
             <div class="time--title" *ngIf="timeTables?.length">
               <i class="fa fa-clock-o" aria-hidden="true"></i>
-              <h3>{{'class-time-table' | translate}}</h3>
+              <h3 class="mb-0">{{'class-time-table' | translate}}</h3>
             </div>
             <div class="time-table" *ngIf="timeTables?.length">
               <div class="time-row" *ngFor="let time of timeTables">
@@ -219,6 +229,7 @@
   <div class="overlay-classes" [ngClass]="{'show-overlay': showOverlay}">
     <ng-container *ngIf="showCourses; else NoCourses">
       <ng-container *ngIf="courses?.length; else noSubCourse">
+        <i class="fa fa-times mb-3" (click)="openopUp()"></i>
         <div class="class-card" *ngFor="let course of courses">
           <input type="radio" value="{{course.Id}}" name="class" id="{{course.Name}}"
             (change)="selectClass($event.target.value)">
@@ -226,7 +237,7 @@
             <ng-container *ngIf="checkLang == 'ar'">  <h2 class="class-name">{{course.NameLT}}</h2></ng-container>
             <ng-container *ngIf="checkLang == 'en'"><h2 class="class-name">{{course.Name}}</h2></ng-container>
           
-            <div class="content">
+            <div class="content mt-4">
               <div class="class-auther-info d-flex justify-content-between">
                 <!-- about auther -->
                 <div class="about-auther mb-3">
@@ -264,6 +275,7 @@
       </ng-container>
 
       <ng-template #noSubCourse>
+        <i class="fa fa-times mb-3" (click)="openopUp()"></i>
         <div class="d-flex justify-content-center align-items-center"
           style="height: 100%;flex-direction: column;">
           <p class="text-capitalize">{{'there-are-not-courses-for-this-language' | translate}}</p>
@@ -280,6 +292,10 @@
 
       </div>
     </ng-template>
+  </div>
+
+  <div class="ovarlay-bg" [ngClass]="{'show-overlay': showOverlay}">
+
   </div>
 </div>
 

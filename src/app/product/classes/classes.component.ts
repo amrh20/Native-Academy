@@ -1,8 +1,10 @@
+import { PopUpComponent } from './../pop-up/pop-up.component';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HomeService } from 'src/app/shared/services/home.service';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-classes',
@@ -30,7 +32,18 @@ export class ClassesComponent implements OnInit {
   teachPath = "http://nativeacademydashboard.native-tech.co/Images/TeacherImages/"
   constructor(private activeRoute: ActivatedRoute,
     private productService: ProductService,
-    private toastr: ToastrService, private homeService: HomeService, private router: Router) {
+    private toastr: ToastrService, private homeService: HomeService, private router: Router,public dialog: MatDialog) {
+  }
+
+
+  openDialog(): void {
+    let dialogRef = this.dialog.open(PopUpComponent, {
+      width: '300px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
   ngOnInit(): void {
@@ -77,6 +90,10 @@ export class ClassesComponent implements OnInit {
       }
       console.log(err)
     })
+  }
+
+  openopUp() {
+    this.showOverlay= !this.showOverlay
   }
   show() {
     this.showFilter = true

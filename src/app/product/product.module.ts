@@ -27,11 +27,13 @@ import { PaymentPageComponent } from './payment-page/payment-page.component';
 import { VideosComponent } from './videos/videos.component';
 import { StudentClassesComponent } from './student-classes/student-classes.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PopUpComponent } from './pop-up/pop-up.component';
 
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [ProductComponent, CartComponent, WishlistComponent, CoursesComponent, CourseDetailsComponent,
-     SearchResultComponent, CollectionsComponent, SubCoursesComponent, AboutCompanyComponent, SuccessCourseComponent, InstructorComponent,SafePipe, ClassesComponent, ClassDetailsComponent, CommentsComponent,ReviewsComponent, PaymentPageComponent, VideosComponent, StudentClassesComponent],
+     SearchResultComponent, CollectionsComponent, SubCoursesComponent, AboutCompanyComponent, SuccessCourseComponent, InstructorComponent,SafePipe, ClassesComponent, ClassDetailsComponent, CommentsComponent,ReviewsComponent, PaymentPageComponent, VideosComponent, StudentClassesComponent, PopUpComponent],
   imports: [
     CommonModule,
     productRoutingModule,
@@ -42,6 +44,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ReactiveFormsModule,
     ToastrModule.forRoot(),
     MatTabsModule,
+    MatDialogModule,
     NgbModule
     ]
 })
