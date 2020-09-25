@@ -20,6 +20,7 @@ export class ClassesComponent implements OnInit {
   courses: any
   Courseloading: boolean;
   showCourses: boolean = false
+  showOverlay: boolean= false
   ClassDetails
   teacherDetails
   timeTables
@@ -51,6 +52,7 @@ export class ClassesComponent implements OnInit {
       this.courses = res.model
       this.showCourses = true
       this.Courseloading = false
+      this.showOverlay= true
     })
   }
   selectClass(e) {
