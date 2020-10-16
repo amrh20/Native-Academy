@@ -8,7 +8,7 @@
                     <ng-container *ngIf="checkLang== 'ar'">{{notification.MessageLT}}</ng-container>
                 </span>
                 <span>
-                    {{notification.CreationDate}}
+                    {{notification.CreationDate | date}}
                 </span>
         </div>
         </div>

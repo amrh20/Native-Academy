@@ -75,7 +75,6 @@ export class ClassesComponent implements OnInit {
       this.timeTables = res.model.TimeTables
       this.IsSubscribed = res.model.IsSubscribed
       this.courseId = res.model.Id
-      console.log("res", this.courseId)
     })
   }
   selectReserve(e) {
@@ -91,7 +90,14 @@ export class ClassesComponent implements OnInit {
       console.log(err)
     })
   }
-
+  timeTable(e) {
+    this.productService.getCourseData(e).subscribe((res: any) => {
+      this.ClassDetails = Object.keys(res.model);
+      this.courseId = res.model.Id
+      this.timeTables = res.model.TimeTables
+      this.IsSubscribed = res.model.IsSubscribed
+    })
+  }
   openopUp() {
     this.showOverlay= !this.showOverlay
   }

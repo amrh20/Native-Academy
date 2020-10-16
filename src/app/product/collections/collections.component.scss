@@ -32,11 +32,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: $main-color;
             a {
-                color: $main-color;
+                color: #000;
                 font-size: 20px;
-                font-weight: 800;
+                font-weight: 500;
             }
         }
         .filter_box-title {
@@ -47,8 +46,7 @@
             }
             i {
                 font-size: 14px;
-                -webkit-transition: all 0.3s ease-in-out;
-                -o-transition: all 0.3s ease-in-out;
+                color: #000;
                 transition: all 0.3s ease-in-out;
             }
             .rotate {

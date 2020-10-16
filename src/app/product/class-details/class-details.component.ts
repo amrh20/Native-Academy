@@ -84,15 +84,12 @@ export class ClassDetailsComponent implements OnInit {
       let id = parm.id
       localStorage.setItem('classId', id)
       this.homeService.getCourseDetails(id).subscribe((res: any) => {
-        console.log(res.model)
         this.timeTables = res.model.TimeTables
         this.Exams = res.model.Exams
         this.studentDataLists = res.model.StudentDataLists
         this.courseMeetings = res.model.CourseMeetings
         this.teacher = res.model.Teacher
         this.introVideoUriForAngular = res.model.IntroVideoUriForAngular
-
-
         this.Exams.forEach((element, index) => {
           let d1 = new Date();
           let d2 = new Date(element.DeadlineDate);
@@ -117,12 +114,15 @@ export class ClassDetailsComponent implements OnInit {
     this.reviewLoading = true
     const CourseRateValue = this.reviewform.value.rating
     const Comment = this.reviewform.value.reviewComment
-    const CourseId = Number(localStorage.getItem('courseId'))
+    const CourseId = Number(localStorage.getItem('classId'))
+    let id = localStorage.getItem("classId")
     this.productService.addReviews(CourseRateValue, Comment, CourseId).subscribe(res => {
       this.toastr.success('your review added successfully')
       this.reviewform.reset()
-      window.location.reload();
       this.reviewLoading = false
+      this.productService.getReviews(id).subscribe((res: any) => {
+        this.reviews = res.model;
+      })
     }, err => {
       console.log(err)
       this.reviewLoading = false
@@ -149,9 +149,9 @@ export class ClassDetailsComponent implements OnInit {
   }
   addcomment() {
     this.commentLoading = true
-    let CourseId = Number(localStorage.getItem('courseId'))
+    let CourseId = Number(localStorage.getItem('classId'))
     let Comment = this.form.value.comment;
-    let id = localStorage.getItem("courseId")
+    let id = localStorage.getItem("classId")
     this.productService.addComment(CourseId, Comment).subscribe((res: any) => {
       this.form.reset()
       this.toastr.success('your comment added successfully');
@@ -177,7 +177,7 @@ export class ClassDetailsComponent implements OnInit {
     this.replyLoading = true
     let CourseCommentId = Number(localStorage.getItem('CourseCommentId'))
     let ReplyText = this.replyform.value.reply;
-    let id = localStorage.getItem("courseId")
+    let id = localStorage.getItem("classId")
     this.productService.addreply(CourseCommentId, ReplyText).subscribe(res => {
       this.toastr.success('your comment added successfully');
       this.replyform.reset()

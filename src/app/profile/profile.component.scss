@@ -201,7 +201,7 @@
     .btns {
         margin-left: 350px;
         position: relative;
-        top: 100px;
+        top: 90px;
         text-align: right;
         background-color: #fff;
         padding: 10px 20px;
@@ -252,6 +252,7 @@
             font-size: 18px;
             font-weight: bold;
             text-transform: capitalize;
+            margin: 0;
             @media (max-width: 768px) {
                 display: none;
             }

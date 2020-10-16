@@ -25,7 +25,6 @@ export class SubCoursesComponent implements OnInit {
       let id =parm.id
       this.productService.getSubTaxonsCourses(id).subscribe((res: any) => {
         this.subCourses= res.model
-        console.log("subCourses", this.subCourses)
       })
     })
 

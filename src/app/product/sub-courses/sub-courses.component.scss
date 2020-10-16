@@ -16,12 +16,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: $main-color;
             width: 100%;
             a {
-                color: $main-color;
+                color: #000;
                 font-size: 20px;
-                font-weight: 800;
+                font-weight: 500;
+            }
+            i {
+                color: #000;
             }
         }
         .filter_box-title {

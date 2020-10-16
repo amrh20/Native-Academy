@@ -1,7 +1,7 @@
 <div class="container">
   <div class="class-details-wrapper">
     <aside class="exams-tabs-link">
-      <div class="logo"><a routerLink="/home">
+      <div class="logo d-none d-lg-block"><a routerLink="/home">
           <span class="first">Native</span>
           <span class="second">Academy</span>
         </a>
@@ -11,7 +11,7 @@
           <li *ngFor="let link of navLinks;let i= index">
             <a (click)="text(i)">
               <img [src]="link.img" alt="">
-              {{link.name}}
+              <span class="d-none d-lg-block">{{link.name}}</span>
             </a>
           </li>
         </ng-container>
@@ -19,7 +19,7 @@
           <li *ngFor="let link of navLinksLT;let i= index">
             <a (click)="text(i)">
               <img [src]="link.img" alt="">
-              {{link.name}}
+              <span class="d-none d-lg-block"> {{link.name}} </span>
             </a>
           </li>
         </ng-container>
@@ -45,7 +45,8 @@
               <textarea placeholder="{{'write-your-comment' | translate}}" formControlName="comment"></textarea>
               <button class="temp_button" type="submit" [disabled]="!form.valid">
                 {{'add-comment' | translate}}
-                <i class="fa fa-spinner fa-spin ml-2" *ngIf="commentLoading"></i></button>
+                <i class="fa fa-spinner fa-spin ml-2" *ngIf="commentLoading"></i>
+              </button>
             </form>
           </div>
           <div class="col-12 p-0" *ngFor="let comment of comments; let i =index">
@@ -60,13 +61,13 @@
                 <div class="review_comment-title">
                   <div class="comment-desc">
                     <h5>{{comment?.StudentName}}</h5>
-                    <p class="comment">{{comment?.CreationDate}}
+                    <p class="comment">{{comment?.CreationDate | date}}
                     </p>
                   </div>
 
                 </div>
               </div>
-              <label for="{{comment?.Comment}}" class="comment-label">
+              <label for="{{comment?.Comment}}" class="comment-label d-flex">
                 <input id="{{comment?.Comment}}" [value]='comment.Id' type="radio" name="test"
                   (change)="selectOption($event.target.value)" class="d-none">
                 <span>{{comment?.Comment}}
@@ -76,25 +77,6 @@
 
                 <!-- <div >The content will show/hide</div> -->
               </label>
-              <div class="replys" *ngFor="let reply of comment.Replies">
-                <div class="Replys" [ngClass]="{'margin': comment?.StudentImage }">
-                  <div>
-                    <img [src]="pathImage + reply?.StudentImage" />
-                  </div>
-                  <div class="Replys-desc">
-                    <span class="name">
-                      {{reply?.StudentName}}
-                    </span>
-                    <span class="date">
-                      {{reply?.CreationDate}}
-                    </span>
-                    <span>
-                      {{reply.ReplyText}}
-                    </span>
-                  </div>
-
-                </div>
-              </div>
               <div class="comment__reply" [hidden]="!hideme[i]">
                 <div class="add_reply">
                   <div class="alert alert-danger mt-3" *ngIf="errorReply" style="width: 460px; margin: 0 auto">
@@ -110,6 +92,26 @@
                   </form>
                 </div>
               </div>
+              <div class="replys" *ngFor="let reply of comment.Replies">
+                <div class="Replys" [ngClass]="{'margin': comment?.StudentImage }">
+                  <div>
+                    <img [src]="pathImage + reply?.StudentImage" />
+                  </div>
+                  <div class="Replys-desc">
+                    <span class="name">
+                      {{reply?.StudentName}}
+                    </span>
+                    <span class="date">
+                      {{reply?.CreationDate | date}}
+                    </span>
+                    <span>
+                      {{reply.ReplyText}}
+                    </span>
+                  </div>
+
+                </div>
+              </div>
+            
             </div>
           </div>
         </div>
@@ -118,7 +120,6 @@
 
     </div>
     <div class="details-content" *ngIf="show==2">
-      <div class="container">
         <div class="course__reviews content">
           <!-- <h2 *ngIf="reviews?.length">{{'Reviews' | translate}}</h2> -->
           <div class="reviews__content" *ngIf="reviews?.length">
@@ -135,7 +136,7 @@
                   </div>
                   <div class="desc-title">
                     <h5>{{review?.StudentName}}</h5>
-                    <span>{{review?.CreationDate}}</span>
+                    <span>{{review?.CreationDate | date}}</span>
                   </div>
                 </div>
                 <p class="rev">
@@ -178,27 +179,30 @@
 
           </div>
         </div>
-      </div>
     </div>
     <div class="details-content" *ngIf="show==3">
       <div class="exams-tab-wrapper">
         <div class="exam-list">
           <div class="exam-card" *ngFor="let exam of Exams">
             <div class="exam-content">
-              <ng-container *ngIf="checkLang == 'ar'">  <h2 class="exam-name">{{exam.TitleLT}}</h2></ng-container>
-              <ng-container *ngIf="checkLang == 'en'">  <h2 class="exam-name">{{exam.Title}}</h2></ng-container>
+              <ng-container *ngIf="checkLang == 'ar'">
+                <h2 class="exam-name">{{exam.TitleLT}}</h2>
+              </ng-container>
+              <ng-container *ngIf="checkLang == 'en'">
+                <h2 class="exam-name">{{exam.Title}}</h2>
+              </ng-container>
 
               <div class="exam-info">
                 <div>
-                  <img src="../../../assets/images/date.png" alt="">
-                  {{exam.StartDate}}
-                  |
-                  <img src="../../../assets/images/date.png" alt="">
-                  {{exam.DeadlineDate}}
+                  <img src="../../../assets/images/date.png" alt="" class="mb-2 mb-md-0">
+                  <span class="mb-2 mb-md-0">{{exam.StartDate | date}}</span>
+                  <span class="d-none d-md-block"> |</span>
+                  <img src="../../../assets/images/date.png" alt="" class="mb-2 mb-md-0">
+                  <span class="mb-2 mb-md-0">{{exam.DeadlineDate | date }}</span>
                 </div>
                 <a href="{{exam.ExamUrl}}" class="start-exam-btn" *ngIf="exam.Check">{{'Start-Exam' | translate}} <i
                     class="fa fa-chevron-right mx-2"></i></a>
-                <span *ngIf="!exam.Check&&exam?.Degree">{{exam.Degree}}</span>
+                <span *ngIf="!exam.Check&&exam?.Degree" class="degree">{{exam.Degree}}</span>
 
               </div>
             </div>
@@ -211,20 +215,19 @@
         <div class="time-row" *ngFor="let time of timeTables">
           <div class="time--day">{{time.Day}}</div>
           <div class="time-list-holder">
-            <span class="mx-2">{{'from' | translate}}: </span>
-            <button>{{time.FromTime}}</button>
+            <button class="mb-2 mb-md-0">{{time.FromTime}}</button>
             <span class="mx-2">{{'to' | translate}}:</span>
-            <button>{{time.ToTime}}</button>
+            <button class="mb-2 mb-md-0">{{time.ToTime}}</button>
           </div>
         </div>
       </div>
     </div>
     <div class="details-content" *ngIf="show==5">
-      <div *ngFor="let meeting of courseMeetings" class="zoom d-flex justify-content-between align-items-centr">
+      <div *ngFor="let meeting of courseMeetings" class="zoom d-flex justify-content-between align-items-center flex-column flex-md-row">
         <div>
-          <h3>{{meeting.Note}}</h3>
-          <h4>{{meeting.MeetingTime}}</h4>
-          <p>{{meeting.MeetingDate | date  }}</p>
+          <h3 class="mb-3">{{meeting.Note}}</h3>
+          <h4 class="mb-3">{{meeting.MeetingTime}}</h4>
+          <p class="mb-3">{{meeting.MeetingDate | date  }}</p>
         </div>
         <div>
           <a href="{{meeting?.MeetingUrl}}" target="_blank">{{'start-lesson' | translate}}
@@ -233,7 +236,7 @@
         </div>
       </div>
     </div>
-    <aside class="student-list-holder">
+    <aside class="student-list-holder d-none d-lg-block">
       <div class="text-center mb-5">
         <img src="../../../assets/images/Annotation.png" alt="">
       </div>
@@ -243,9 +246,13 @@
           <img [src]="teachPath + teacher?.ProfileImage" *ngIf="teacher?.ProfileImage" />
         </div>
         <div class="student-info">
-         
-          <ng-container *ngIf="checkLang == 'ar'">   <h3>{{teacher?.NameLT}}</h3></ng-container>
-          <ng-container *ngIf="checkLang == 'en'">   <h3>{{teacher?.Name}}</h3></ng-container>
+
+          <ng-container *ngIf="checkLang == 'ar'">
+            <h3>{{teacher?.NameLT}}</h3>
+          </ng-container>
+          <ng-container *ngIf="checkLang == 'en'">
+            <h3>{{teacher?.Name}}</h3>
+          </ng-container>
         </div>
       </div>
       <h3 class="title">{{'Students-List' | translate}}</h3>

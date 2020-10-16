@@ -39,6 +39,9 @@
     padding: 15px;
     border-radius: 5px;
     color: #fff;
+    @media (max-width: 768px) {
+      padding: 10px;
+    }
   }
 
   .more-course-detials {
@@ -276,7 +279,7 @@
       line-height: 1.8;
       color: #777;
       text-transform: capitalize;
-      margin-left: 10px;
+      margin-left: 20px;
       margin-top: 15px;
       margin-bottom: 20px;
 
@@ -653,22 +656,19 @@
     color: #000;
     font-size: 18px;
     font-weight: bold;
-    margin-bottom: 30px;
-    text-align: center;
+    margin-bottom: 10px;
     position: relative;
-    &:last-of-type {
-      margin-bottom: 0;
-    }
-    &:after {
-      position: absolute;
-      content: "";
-      bottom: -10px;
-      left: 50%;
-      background-color: $main-color;
-      height: 2px;
-      width: 115px;
-      transform: translate(-50%, -50%);
-    }
+ 
+    // &:after {
+    //   position: absolute;
+    //   content: "";
+    //   bottom: -10px;
+    //   left: 50%;
+    //   background-color: $main-color;
+    //   height: 2px;
+    //   width: 115px;
+    //   transform: translate(-50%, -50%);
+    // }
   }
 
   [dir=rtl] & {
