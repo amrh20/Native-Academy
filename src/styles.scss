@@ -2,14 +2,6 @@
 @import "app/variables.scss";
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-@media print {
-
-  html,
-  body {
-    display: none !important;
-    /* hide whole page */
-  }
-}
 
 @font-face {
   font-family: myFirstFont;
@@ -405,12 +397,6 @@ button:focus {
 }
 
 .cart:hover {
-
-  // .product-icons {
-  //     opacity: 1;
-  //     visibility: visible;
-  //     right: 8px;
-  // }
   .cart_img {
     .overlay {
       width: 100%;
@@ -483,14 +469,8 @@ button:focus {
       border-radius: 50%;
       height: 50px;
       width: 50px;
-      display: -webkit-box;
-      display: -ms-flexbox;
       display: flex;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
       align-items: center;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
       justify-content: center;
     }
 
@@ -499,14 +479,8 @@ button:focus {
       border-radius: 50%;
       height: 50px;
       width: 50px;
-      display: -webkit-box;
-      display: -ms-flexbox;
       display: flex;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
       align-items: center;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
       justify-content: center;
       background: #f2475f;
       margin-top: -10px;
@@ -520,18 +494,12 @@ button:focus {
     position: absolute;
     bottom: 29px;
     padding: 10px;
-    -webkit-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     left: 50%;
-    -webkit-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
 
     i {
@@ -2217,10 +2185,7 @@ body {
   height: 100%;
 }
 
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
+
 
 .empty-img {
   max-height: calc(100vh - 300px);

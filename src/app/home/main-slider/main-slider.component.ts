@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from 'src/app/shared/services/home.service';
 import { ProductService } from 'src/app/shared/services/product.service';
-declare var $: any;
 
 @Component({
   selector: 'app-main-slider',
@@ -14,7 +13,6 @@ export class MainSliderComponent implements OnInit {
   checkLang;
   constructor(private homeService:HomeService, private productService: ProductService) { }
   ngOnInit(): void {
-    $.getScript('mainscript.js');
     
     this.checkLang= localStorage.getItem('currentLanguage') || 'en'
   }
@@ -26,8 +24,8 @@ export class MainSliderComponent implements OnInit {
   ]
  // Slick slider config
  public sliderConfig: any = {
-  // autoplay: true,
-  // autoplaySpeed: 2500,
+  autoplay: true,
+  autoplaySpeed: 2500,
   arrows: true,
   dots: false,
   rtl : localStorage.getItem('currentLanguage') === "ar" ? true : false,
